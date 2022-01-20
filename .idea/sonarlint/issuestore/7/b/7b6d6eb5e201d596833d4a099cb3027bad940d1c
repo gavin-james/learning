@@ -1,0 +1,19 @@
+
+<
+java:S1068 "&Remove this unused "id" private field.(æ¨ç†
+B
+java:S1068"",Remove this unused "username" private field.(‘ó¹²
+G
+java:S1068$",Remove this unused "password" private field.(œãë­úÿÿÿÿ
+B
+java:S1068&",Remove this unused "nickName" private field.(ë·õ
+>
+java:S1068("(Remove this unused "salt" private field.(©‹½
+D
+java:S1068*")Remove this unused "token" private field.(°É©ñÿÿÿÿÿ
+H
+java:S1068,"-Remove this unused "isDeleted" private field.(Ò¹‹úÿÿÿÿ
+C
+java:S1068."-Remove this unused "gmtCreate" private field.(‹í¬¶
+J
+java:S10680"/Remove this unused "gmtModified" private field.(¾–âşÿÿÿÿ

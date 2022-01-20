@@ -1,0 +1,15 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: springboot-cache
+  devtools:
+    livereload:
+      port: 10001
+
+logging:
+  level:
+    com:
+      gavin:
+        task: debug

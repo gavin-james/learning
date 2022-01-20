@@ -1,0 +1,6 @@
+file:
+  minio:
+    endpoint: http://124.223.13.183:9000
+    access-key: admin
+    secret-key: admin123
+    bucket: test-minio

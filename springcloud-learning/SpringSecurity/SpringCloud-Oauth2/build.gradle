@@ -1,0 +1,15 @@
+
+dependencies {
+    implementation ("org.springframework.boot:spring-boot-starter-web"){
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+    }
+    implementation "org.springframework.cloud:spring-cloud-starter-oauth2"
+    implementation "org.springframework.boot:spring-boot-starter-undertow"
+    implementation "org.springframework.boot:spring-boot-starter-data-redis"
+    implementation "org.apache.commons:commons-pool2:2.10.0"
+
+    implementation "com.baomidou:mybatis-plus-boot-starter:3.5.0"
+    implementation "mysql:mysql-connector-java:8.0.25"
+    implementation 'com.alibaba:druid-spring-boot-starter:1.2.8'
+//    implementation ""
+}

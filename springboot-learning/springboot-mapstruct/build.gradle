@@ -1,0 +1,8 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // mapstruct 注解驱动器
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.0.Beta2'
+    // mapstruct 核心依赖包
+    implementation 'org.mapstruct:mapstruct:1.5.0.Beta2'
+}

@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "gavin",
+      "type": "com.gavin.hello.bean.HelloProperties",
+      "sourceType": "com.gavin.hello.bean.HelloProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "gavin.hello.name",
+      "type": "java.lang.String",
+      "description": "说话的名字",
+      "defaultValue": ""
+    },
+    {
+      "name": "gavin.hello.msg",
+      "type": "java.lang.String",
+      "description": "说话内容",
+      "defaultValue": ""
+    }
+  ]
+}
