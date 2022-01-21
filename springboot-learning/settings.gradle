@@ -39,3 +39,7 @@ include 'springboot-transacation'
 
 // 缓存
 include 'springboot-websocket'
+include 'springboot-actuator'
+include 'springboot-admin'
+include 'springboot-idgenerator'
+

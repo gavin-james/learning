@@ -31,6 +31,9 @@ buildscript {
     }
 }
 
+//描述
+description 'springcloud 学习'
+
 // 所有项目配置
 allprojects {
     // gradle插件
@@ -124,7 +127,7 @@ subprojects {
             // Spring-Alibaba 依赖
             mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
         }
-         // 子项目管理依赖
+        // 子项目管理依赖
         dependencies {
             dependency "mysql:mysql-connector-java:8.0.25"
             dependency 'com.baomidou:mybatisplus-spring-boot-starter:1.0.5'

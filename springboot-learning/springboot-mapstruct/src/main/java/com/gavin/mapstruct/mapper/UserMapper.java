@@ -4,8 +4,8 @@ import com.gavin.mapstruct.entity.pojo.User;
 import com.gavin.mapstruct.entity.pojo.UserEnum;
 import com.gavin.mapstruct.entity.vo.*;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
+import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
 /**

@@ -3,5 +3,12 @@ dependencies {
     implementation "mysql:mysql-connector-java:8.0.25"
     implementation "com.baomidou:mybatis-plus-boot-starter:3.5.0"
     implementation "com.alibaba:druid-spring-boot-starter:1.2.8"
+    // 生成模板
     implementation "com.baomidou:mybatis-plus-generator:3.5.1"
+    // 模板引擎
+    implementation "org.apache.velocity:velocity-engine-core:2.3"
+    // jetbrains 注解
+    implementation "org.jetbrains:annotations:22.0.0"
+    // jetbrains 注解
+    implementation 'commons-io:commons-io:2.11.0' // io 操作
 }

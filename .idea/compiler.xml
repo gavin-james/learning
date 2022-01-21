@@ -8,6 +8,8 @@
       <module name="springboot-learning.customer-spring-starter-test" target="1.8" />
       <module name="springboot-learning.customer-spring-starter-test.main" target="1.8" />
       <module name="springboot-learning.customer-spring-starter-test.test" target="1.8" />
+      <module name="springboot-learning.main" target="1.8" />
+      <module name="springboot-learning.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
