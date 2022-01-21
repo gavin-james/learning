@@ -1,0 +1,13 @@
+<div id="${entity}">
+    Counter: {{ ${entity} }}
+</div>
+
+const Counter = {
+data() {
+return {
+${entity}: ${test}
+}
+}
+}
+
+Vue.createApp(Counter).mount('#${entity}')

@@ -1,0 +1,9 @@
+dependencies {
+    implementation(
+            "org.springframework.boot:spring-boot-starter-webflux",
+            "org.springframework.boot:spring-boot-starter-actuator"
+    )
+}
+
+//描述
+description = "健康指标"

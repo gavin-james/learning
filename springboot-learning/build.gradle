@@ -28,7 +28,7 @@ buildscript {
 }
 
 //描述
-description 'springboot 学习'
+description = 'springboot 学习'
 
 // 所有项目配置
 allprojects {
