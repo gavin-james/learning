@@ -1,9 +1,0 @@
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-
-    // 静态资源
-    implementation 'org.webjars.npm:layui:2.6.8'
-    // 用于省略版本号
-    implementation 'org.webjars:webjars-locator:0.42'
-}
