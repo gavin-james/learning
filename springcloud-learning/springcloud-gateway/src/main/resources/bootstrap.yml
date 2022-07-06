@@ -1,0 +1,30 @@
+
+spring:
+  application:
+    name: gavin-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: true
+    nacos:
+      server-addr: gavinwish.xyz:8848
+  # 日期格式化
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 不转换为空或者为 null 的字段
+    default-property-inclusion: non_empty
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  # 设置端点暴露的哪些内容，默认["health","info"]，设置"*"代表暴露所有可访问的端点
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+server:
+  port: 8080

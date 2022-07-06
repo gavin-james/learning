@@ -1,0 +1,29 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 9001
+
+# spring配置
+spring:
+  # 服务名称
+  application:
+    name: gavin-oauth2-resource
+
+# 日志配置
+logging:
+  # 日志等级
+  level:
+    com:
+      gavin:
+        tth: debug
+#security:
+#  oauth2:
+#    resource:
+##      token-info-uri: http://localhost:9000/oauth/check_token
+##      token
+#      user-info-uri: http://localhost:9000/getUserInfo
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
