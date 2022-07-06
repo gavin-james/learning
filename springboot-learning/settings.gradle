@@ -42,4 +42,6 @@ include 'springboot-websocket'
 include 'springboot-actuator'
 include 'springboot-admin'
 include 'springboot-idgenerator'
+include 'springboot-tlog'
+include 'springboot-forest'
 

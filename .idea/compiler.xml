@@ -6,40 +6,14 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
+          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.22/9c08ea24c6eb714e2d6170e8122c069a0ba9aacf/lombok-1.18.22.jar" />
         </processorPath>
-        <module name="springboot-learning.springboot-actuator.main" />
-        <module name="springboot-learning.springboot-idgenerator.main" />
-        <module name="springboot-learning.springboot-cache.main" />
-        <module name="springboot-learning.springboot-knife4j.main" />
-        <module name="springboot-learning.springboot-transacation.main" />
-        <module name="springboot-learning.springboot-rocketmq.main" />
-        <module name="springboot-learning.springboot-oss.main" />
-        <module name="springboot-learning.springboot-starter.customer-spring-boot-starter.main" />
-        <module name="springboot-learning.springboot-mybatis-plus.main" />
-        <module name="springboot-learning.springboot-starter.customer-spring-boot-starter-autoconfigure.main" />
-        <module name="springboot-learning.springboot-webjars.main" />
-        <module name="springboot-learning.springboot-starter.main" />
-        <module name="springboot-learning.springboot-task.main" />
-        <module name="springboot-learning.springboot-starter.customer-spring-starter-test.main" />
-        <module name="springboot-learning.springboot-admin.main" />
-        <module name="springboot-learning.springboot-websocket.main" />
-      </profile>
-      <profile name="Gradle Imported" enabled="true">
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
-          <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.0.Beta2/1f2a01e3c6e1a615b9925b4662e3cd3f747e75cf/mapstruct-processor-1.5.0.Beta2.jar" />
-        </processorPath>
-        <module name="springboot-learning.springboot-mapstruct.main" />
+        <module name="java.java-design-parttern.main" />
+        <module name="java.java-shbw.main" />
+        <module name="java.java-extensions.java-okhttps.main" />
+        <module name="java.java-extensions.main" />
+        <module name="java.java-jvm.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="springboot-learning.customer-spring-starter-test" target="1.8" />
-      <module name="springboot-learning.customer-spring-starter-test.main" target="1.8" />
-      <module name="springboot-learning.customer-spring-starter-test.test" target="1.8" />
-      <module name="springboot-learning.main" target="1.8" />
-      <module name="springboot-learning.test" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

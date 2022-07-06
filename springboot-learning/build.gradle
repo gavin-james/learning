@@ -28,7 +28,6 @@ buildscript {
 }
 
 //描述
-description = 'springboot 学习'
 
 // 所有项目配置
 allprojects {
@@ -84,6 +83,8 @@ subprojects {
             mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
         }
         dependencies {
+
+
         }
     }
 
@@ -102,9 +103,9 @@ subprojects {
     }
 
     // 定义您的源文件应该被视为哪种语言版本的 Java。
-    sourceCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
     // 定义您的代码应该运行的最低 JVM 版本，即它确定编译器生成的字节码版本。
-    targetCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_11
 
     // 测试配置
     test {

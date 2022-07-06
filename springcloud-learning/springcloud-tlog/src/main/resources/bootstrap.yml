@@ -1,0 +1,37 @@
+# 服务器配置
+server:
+  port: 9000
+  undertow:
+    # 以下的配置会影响buffer,这些buffer会用于服务器连接的IO操作,有点类似netty的池化内存管理；
+    buffer-size: 512
+    # 是否分配的直接内存
+    direct-buffers: true
+    threads:
+      # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程；
+      io: 8
+      # 阻塞任务线程池, 当执行类似servlet请求阻塞IO操作, undertow会从这个线程池中取得线程，默认值是IO线程数*8；
+      worker: 64
+
+
+spring:
+  application:
+    name: gavin-tlog
+  cloud:
+    nacos:
+      server-addr: gavinwish.xyz:8848
+  # 日期格式化
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 不转换为空或者为 null 的字段
+    default-property-inclusion: non_empty
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  # 设置端点暴露的哪些内容，默认["health","info"]，设置"*"代表暴露所有可访问的端点
+  endpoints:
+    web:
+      exposure:
+        include: '*'

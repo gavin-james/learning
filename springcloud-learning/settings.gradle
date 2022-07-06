@@ -1,2 +1,9 @@
 rootProject.name = 'springcloud-learning'
+include 'springcloud-security'
+include 'springcloud-oauth2'
+include 'springcloud-gateway'
+include 'springcloud-knife4j'
+include 'springcloud-seata'
+include 'springcloud-pwoerjob'
+include 'springcloud-tlog'
 
