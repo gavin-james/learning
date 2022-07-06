@@ -1,6 +1,0 @@
-//jar.enable = true
-dependencies {
-}
-jar{
-    enabled = true
-}

@@ -1,7 +1,0 @@
-dependencies {
-    api(project(':springboot-starter:customer-spring-boot-starter-autoconfigure'))
-}
-
-jar {
-    enabled = true
-}
