@@ -1,0 +1,8 @@
+rootProject.name = 'java'
+include 'java-design-parttern'
+include 'java-shbw'
+include 'java-jvm'
+include 'java-extensions'
+include 'java-extensions:java-okhttps'
+findProject(':java-extensions:java-okhttps')?.name = 'java-okhttps'
+

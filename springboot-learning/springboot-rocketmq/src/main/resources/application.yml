@@ -1,0 +1,7 @@
+server:
+  port: 19890
+
+rocketmq:
+  name-server: 47.108.197.41:9876
+  producer:
+    group: send_message
