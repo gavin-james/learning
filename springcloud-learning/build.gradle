@@ -20,7 +20,7 @@ buildscript {
         redissonVersion = '3.16.7' //分布式缓存锁
 
         // 相关工具依赖
-//        hutoolVersion = '5.7.2' // hutool 简化工具集
+        hutoolVersion = '5.7.2' // hutool 简化工具集
         okhttpsVersion = '3.4.1' // http 工具
         ttlVersion = '2.12.4' // ThreadLocal 工具
         jwtVersion = '9.15.2' // jwt 工具
@@ -137,7 +137,7 @@ subprojects {
             dependency "org.mapstruct:mapstruct:${mapstructVersion}"
 
             // 工具
-//            dependency "cn.hutool:hutool-all:${hutoolVersion}"
+            dependency "cn.hutool:hutool-all:${hutoolVersion}"
             dependency "com.ejlchina:okhttps-jackson:${okhttpsVersion}"
             dependency "com.alibaba:transmittable-thread-local:${ttlVersion}"
             dependency "com.nimbusds:nimbus-jose-jwt:${jwtVersion}"
