@@ -7,6 +7,8 @@ buildscript {
         springCloudVersion = 'Hoxton.SR12'
         springCloudAlibabaVersion = "2.2.7.RELEASE"
 
+        xnioVersion = '3.8.7.Final'
+
         // 实体类相关依赖
         mapstructVersion = '1.5.0.Beta2' // mapstruct 实体类映射
 
@@ -122,6 +124,11 @@ subprojects {
             dependency("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
                 exclude "org.springframework.boot:spring-boot-starter-tomcat"
             }
+            dependency("org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}") {
+                exclude "org.jboss.xnio:xnio-nio"
+            }
+
+            dependency "org.jboss.xnio:xnio-nio:${xnioVersion}"
 
             // 数据库相关依赖
             dependency "mysql:mysql-connector-java:${mysqlVersion}"

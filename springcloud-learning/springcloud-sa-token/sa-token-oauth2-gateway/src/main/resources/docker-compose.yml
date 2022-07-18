@@ -1,0 +1,18 @@
+version: "2"
+services:
+  nacos:
+    image: nacos/nacos-server
+    container_name: nacos
+    environment:
+      JAVA_OPTS: -Xmx256m -Xms256m -Xmn256m
+      SPRING_DATASOURCE_PLATFORM: mysql
+      MYSQL_SERVICE_HOST: MYSQL
+      MYSQL_SERVICE_DB_NAME: nacos
+      MYSQL_SERVICE_USER: root
+      MYSQL_SERVICE_PASSWORD: gavin123
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+      - "9849:9849"
+    restart: always
+    network_mode: my_net

@@ -1,0 +1,14 @@
+dependencies {
+    implementation(
+            project(":springcloud-sa-token:sa-token-common"),
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.boot:spring-boot-starter-undertow",
+            "org.jboss.xnio:xnio-nio",
+            "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery",
+            "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery",
+            "com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config",
+            "cn.dev33:sa-token-reactor-spring-boot-starter:1.24.0",
+            "cn.dev33:sa-token-dao-redis-jackson:1.24.0",
+            "org.apache.commons:commons-pool2:2.11.1"
+    )
+}
