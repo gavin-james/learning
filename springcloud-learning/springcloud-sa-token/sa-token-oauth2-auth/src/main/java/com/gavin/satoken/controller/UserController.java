@@ -2,12 +2,10 @@ package com.gavin.satoken.controller;
 
 import cn.dev33.satoken.stp.SaTokenInfo;
 import com.gavin.satoken.common.R;
+import com.gavin.satoken.entity.UserVo;
 import com.gavin.satoken.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,9 +21,9 @@ public class UserController {
   @Autowired
   private UserServiceImpl userService;
 
-  @RequestMapping(value = "/login", method = RequestMethod.POST)
-  public R login(@RequestParam String username, @RequestParam String password) {
-    SaTokenInfo saTokenInfo = userService.login(username, password);
+  @PostMapping(value = "/login")
+  public R login(@RequestBody UserVo user) {
+    SaTokenInfo saTokenInfo = userService.login(user);
     if (saTokenInfo == null) {
       return R.validateFailed("用户名或密码错误");
     }

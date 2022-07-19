@@ -60,6 +60,8 @@ sa-token:
   is-read-cookie: false
   # 是否从head中读取token
   is-read-head: true
+  # 是否在初始化配置时打印版本字符画
+  is-print: false
 
 
 secure:

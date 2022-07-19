@@ -4,6 +4,7 @@ import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
 import com.gavin.satoken.entity.UserDTO;
+import com.gavin.satoken.entity.UserVo;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -43,13 +44,13 @@ public class UserServiceImpl {
     return findUserList.get(0);
   }
 
-  public SaTokenInfo login(String username, String password) {
+  public SaTokenInfo login(UserVo user) {
     SaTokenInfo saTokenInfo = null;
-    UserDTO userDTO = loadUserByUsername(username);
+    UserDTO userDTO = loadUserByUsername(user.getUsername());
     if (userDTO == null) {
       return null;
     }
-    if (!SaSecureUtil.md5(password).equals(userDTO.getPassword())) {
+    if (!SaSecureUtil.md5(user.getPassword()).equals(userDTO.getPassword())) {
       return null;
     }
     // 密码校验成功后登录，一行代码实现登录

@@ -5,11 +5,6 @@ spring:
       server-addr: www.gavinwish.xyz
       config:
         file-extension: yml
-        group: sa-token
-        namespace: 45f1fb6e-4689-438c-a9ed-fa021b8ce28f
-      discovery:
-        enabled: true
-        group: sa-token
-        namespace: 45f1fb6e-4689-438c-a9ed-fa021b8ce28f
+
 
 

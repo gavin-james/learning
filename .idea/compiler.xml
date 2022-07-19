@@ -6,21 +6,34 @@
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$PROJECT_DIR$/../../../../../JAVA/GRADLE/Repository/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-configuration-processor/2.3.12.RELEASE/36c6cbb35ca07dc8810e913edfe045d8f89a303d/spring-boot-configuration-processor-2.3.12.RELEASE.jar" />
           <entry name="$PROJECT_DIR$/../../../../../JAVA/GRADLE/Repository/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
         </processorPath>
-        <module name="springcloud-learning.springcloud-pwoerjob.main" />
-        <module name="springcloud-learning.springcloud-security.main" />
-        <module name="springcloud-learning.springcloud-sa-token.sa-token-oauth2-api.main" />
-        <module name="springcloud-learning.springcloud-sa-token.sa-token-oauth2-gateway.main" />
-        <module name="springcloud-learning.springcloud-seata.main" />
-        <module name="springcloud-learning.springcloud-sa-token.main" />
-        <module name="springcloud-learning.springcloud-sa-token.sa-token-common.main" />
-        <module name="springcloud-learning.springcloud-gateway.main" />
-        <module name="springcloud-learning.springcloud-oauth2.main" />
-        <module name="springcloud-learning.springcloud-sa-token.sa-token-oauth2-auth.main" />
-        <module name="springcloud-learning.springcloud-knife4j.main" />
-        <module name="springcloud-learning.springcloud-tlog.main" />
+        <module name="springboot-learning.springboot-actuator.main" />
+        <module name="springboot-learning.springboot-idgenerator.main" />
+        <module name="springboot-learning.springboot-cache.main" />
+        <module name="springboot-learning.springboot-knife4j.main" />
+        <module name="springboot-learning.springboot-tlog.main" />
+        <module name="springboot-learning.springboot-transacation.main" />
+        <module name="springboot-learning.springboot-rocketmq.main" />
+        <module name="springboot-learning.springboot-oss.main" />
+        <module name="springboot-learning.springboot-starter.customer-spring-boot-starter.main" />
+        <module name="springboot-learning.springboot-mybatis-plus.main" />
+        <module name="springboot-learning.springboot-starter.customer-spring-boot-starter-autoconfigure.main" />
+        <module name="springboot-learning.springboot-webjars.main" />
+        <module name="springboot-learning.springboot-starter.main" />
+        <module name="springboot-learning.springboot-task.main" />
+        <module name="springboot-learning.springboot-starter.customer-spring-starter-test.main" />
+        <module name="springboot-learning.springboot-admin.main" />
+        <module name="springboot-learning.springboot-forest.main" />
+        <module name="springboot-learning.springboot-websocket.main" />
+      </profile>
+      <profile name="Gradle Imported" enabled="true">
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$PROJECT_DIR$/../../../../../JAVA/GRADLE/Repository/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.20/18bcea7d5df4d49227b4a0743a536208ce4825bb/lombok-1.18.20.jar" />
+          <entry name="$PROJECT_DIR$/../../../../../JAVA/GRADLE/Repository/caches/modules-2/files-2.1/org.mapstruct/mapstruct-processor/1.5.0.Beta2/1f2a01e3c6e1a615b9925b4662e3cd3f747e75cf/mapstruct-processor-1.5.0.Beta2.jar" />
+        </processorPath>
+        <module name="springboot-learning.springboot-mapstruct.main" />
       </profile>
     </annotationProcessing>
   </component>

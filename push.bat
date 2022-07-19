@@ -1,7 +1,7 @@
 @echo off
-git add -A
+@git add -A
 
-git commit -m  %1
+@git commit -m  %1
 
-git push origin master
-Pause
+@git push origin master
+exit

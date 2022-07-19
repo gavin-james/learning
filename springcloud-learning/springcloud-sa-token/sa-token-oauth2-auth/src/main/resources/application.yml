@@ -18,19 +18,13 @@ spring:
     database: 0
     port: 6379
     host: www.gavinwish.xyz
-    password:
 
 
   cloud:
     nacos:
       # nacos 地址
       server-addr: www.gavinwish.xyz:8848
-      discovery:
-        group: default
-        namespace: default
       config:
-        group: default
-        namespace: default
         file-extension: yml
 
 # Sa-Token配置
