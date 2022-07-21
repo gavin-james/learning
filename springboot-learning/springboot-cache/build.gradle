@@ -3,9 +3,12 @@ jar.enabled = true
 
 dependencies {
 //    implementation "org.springframework.boot:spring-boot-starter-cache"
-    implementation "mysql:mysql-connector-java:8.0.25"
-    implementation "com.alibaba:druid-spring-boot-starter:1.2.8"
-    implementation 'com.baomidou:mybatis-plus-boot-starter:3.4.3'
+    implementation(
+            "com.gavin.framework:gavin-starter-web",
+            "com.alibaba:druid-spring-boot-starter:1.2.8",
+            'com.baomidou:mybatis-plus-boot-starter:3.4.3',
+            "mysql:mysql-connector-java:8.0.25"
+    )
 //    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 
 }

@@ -31,7 +31,7 @@ services:
     # 配置端口映射
     ports:
       - "3000:3000"
-      - "22:22"
+      - "222:222"
     # 指定依赖(先安装依赖)
     depends_on:
       - db
@@ -40,7 +40,6 @@ services:
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=gitea123
-      - MYSQL_USER=root
       - MYSQL_DATABASE=gitea
     networks:
       - gitea

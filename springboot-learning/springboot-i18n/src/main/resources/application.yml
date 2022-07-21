@@ -1,0 +1,8 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gavin-i18n
+  messages:
+    basename: i18n/messages

@@ -95,7 +95,6 @@ subprojects {
         // 阿里云 spring 代理仓库
         maven { url 'https://maven.aliyun.com/repository/spring/' }
         // 中央maven仓库
-        jcenter()
         mavenCentral()
     }
 

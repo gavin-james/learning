@@ -15,6 +15,7 @@
         <module name="springboot-learning.springboot-tlog.main" />
         <module name="springboot-learning.springboot-transacation.main" />
         <module name="springboot-learning.springboot-rocketmq.main" />
+        <module name="springboot-learning.springboot-i18n.main" />
         <module name="springboot-learning.springboot-oss.main" />
         <module name="springboot-learning.springboot-starter.customer-spring-boot-starter.main" />
         <module name="springboot-learning.springboot-mybatis-plus.main" />
@@ -25,6 +26,7 @@
         <module name="springboot-learning.springboot-starter.customer-spring-starter-test.main" />
         <module name="springboot-learning.springboot-admin.main" />
         <module name="springboot-learning.springboot-forest.main" />
+        <module name="springboot-learning.springboot-ip2region.main" />
         <module name="springboot-learning.springboot-websocket.main" />
       </profile>
       <profile name="Gradle Imported" enabled="true">

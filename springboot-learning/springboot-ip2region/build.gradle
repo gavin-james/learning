@@ -1,0 +1,6 @@
+dependencies {
+    implementation(
+            "com.gavin.framework:gavin-starter-web",
+            "com.github.hiwepy:ip2region-spring-boot-starter:2.0.0.RELEASE"
+    )
+}

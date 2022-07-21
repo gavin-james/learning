@@ -10,13 +10,13 @@ import com.gavin.mapstruct.entity.vo.UserVo4;
 import com.gavin.mapstruct.enums.UserTypeEnum;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-01-14T11:24:27+0800",
-    comments = "version: 1.5.0.Beta2, compiler: javac, environment: Java 1.8.0_312 (Amazon.com Inc.)"
+    date = "2022-07-21T08:45:52+0800",
+    comments = "version: 1.5.0.Beta2, compiler: javac, environment: Java 11.0.15 (Amazon.com Inc.)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
