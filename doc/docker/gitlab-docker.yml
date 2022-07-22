@@ -1,0 +1,21 @@
+version: "3"
+services:
+  server:
+    # 指定gitea镜像及版本
+    image: gitlab/gitlab-ce:latest
+    # 指定容器别名
+    container_name: gitlab
+    # 开机自启
+    restart: always
+    # 让容器获取宿主机root权限
+    privileged: true
+    # 配置挂载卷
+    volumes:
+      - /root/docker/gitlab/etc:/etc/gitlab
+      - /root/docker/gitlab/log:/var/log/gitlab
+      - /root/docker/gitlab/data:/var/opt/gitlab
+    # 配置端口映射
+    ports:
+      - "9090:80"
+      - "222:22"
+
