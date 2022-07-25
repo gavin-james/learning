@@ -9,8 +9,8 @@ echo 提交的commit信息:%1
 :: set /p declation=输入提交的commit信息:
 git commit -m %1
 echo;
-echo 将变更情况提交到远程自己分支：git push origin master
-git push origin master
+echo 将变更情况提交到远程自己分支：git push origin main
+git push origin main
 echo;
 :: echo 切换主分支：git checkout master
 :: git checkout master
