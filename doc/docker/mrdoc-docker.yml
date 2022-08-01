@@ -1,0 +1,19 @@
+version: "3"
+services:
+  server:
+    # 指定gitea镜像及版本
+    image: jonnyan404/mrdoc-nginx
+    # 指定容器别名
+    container_name: mrdoc
+    # 开机自启
+    restart: always
+    # 让容器获取宿主机root权限
+    privileged: true
+    # 配置挂载卷
+    volumes:
+      - /root/docker/mrdoc:/app/MrDoc/config
+      - /root/docker/mrdoc/media:/app/MrDoc/media
+    # 配置端口映射
+    ports:
+      - "10086:10086"
+

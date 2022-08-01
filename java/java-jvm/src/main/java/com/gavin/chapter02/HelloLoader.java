@@ -6,6 +6,4 @@ public class HelloLoader {
     System.out.println("hello class loader");
 
   }
-
-
 }

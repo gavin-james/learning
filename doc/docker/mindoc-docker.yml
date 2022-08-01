@@ -1,0 +1,45 @@
+version: "3"
+# 创建mysql和gitea专用网络
+networks:
+  gitea:
+    external: false
+services:
+  server:
+    # 指定gitea镜像及版本
+    image: registry.cn-hangzhou.aliyuncs.com/mindoc/mindoc:v2.0-beta.2
+  image: registry.cn-hangzhou.aliyuncs.com/mindoc/mindoc:v2.0-beta.2
+  privileged: false
+  restart: always
+  ports:
+    - 8181:8181
+  volumes:
+    - /var/www/mindoc/database:/mindoc/database
+    - /var/www/mindoc/uploads:/mindoc/uploads
+  environment:
+    - MINDOC_RUN_MODE=prod
+    - MINDOC_DB_ADAPTER=sqlite3
+    - MINDOC_DB_DATABASE=./database/mindoc.db
+    - MINDOC_CACHE=true
+    - MINDOC_CACHE_PROVIDER=file
+    - MINDOC_ENABLE_EXPORT=false
+    - MINDOC_BASE_URL=
+    - MINDOC_CDN_IMG_URL=
+    - MINDOC_CDN_CSS_URL=
+    - MINDOC_CDN_JS_URL=
+  dns:
+    - 223.5.5.5
+    - 223.6.6.6    # 指定依赖(先安装依赖)
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=gitea123
+      - MYSQL_DATABASE=gitea
+    networks:
+      - gitea
+    volumes:
+      - /root/docker/mysql/data:/var/lib/mysql
+    ports:
+      - "3306:3306"
