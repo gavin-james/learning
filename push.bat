@@ -1,7 +1,5 @@
 @echo off
 title GIT一键提交
-echo 当前目录是：%cd%
-echo;
 echo 开始添加变更：git add -A
 git add -A
 echo;
