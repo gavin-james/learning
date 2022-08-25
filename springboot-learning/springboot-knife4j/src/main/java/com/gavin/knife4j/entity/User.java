@@ -1,22 +1,34 @@
 package com.gavin.knife4j.entity;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.v3.oas.annotations.media.Schema;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.experimental.Accessors;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Accessors(chain = true)
-@ApiModel(value = "用户信息实体", description = "用户信息实体描述")
+/***
+ *
+ * @since:knife4j-springdoc-openapi-demo 1.0
+ * @author <a href="mailto:xiaoymin@foxmail.com">xiaoymin@foxmail.com</a> 
+ * 2020/03/15 20:53
+ */
 public class User {
 
-  @Schema(description = "这是编号的哦")
+  @Schema(description = "主键id", defaultValue = "1")
   private String id;
 
-  @Schema(description = "用户 名字", type = "string", required = true, minLength = 4, maxLength = 12, example = "10086")
+  @Schema(description = "名称", defaultValue = "张飞")
   private String name;
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 }

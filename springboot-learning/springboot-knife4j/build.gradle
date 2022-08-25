@@ -1,9 +1,14 @@
 dependencies {
     // web 开发
-    implementation("org.springframework.boot:spring-boot-starter-web") {
-        exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
-    }
+//    implementation("org.springframework.boot:spring-boot-starter-web") {
+//        exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+//    }
     // undertow 用于替代 tomacat
     implementation "org.springframework.boot:spring-boot-starter-undertow"
-    implementation "com.github.xiaoymin:knife4j-spring-boot-starter:3.0.3"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.jboss.xnio:xnio-nio"
+    implementation "com.github.xiaoymin:knife4j-openapi3-spring-boot-starter:3.1.0-SNAPSHOT"
+    implementation "org.springdoc:springdoc-openapi-ui:1.6.9"
+    implementation "cn.hutool:hutool-all:5.8.5"
+
 }
