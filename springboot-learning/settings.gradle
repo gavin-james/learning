@@ -46,4 +46,5 @@ include 'springboot-tlog'
 include 'springboot-forest'
 include 'springboot-i18n'
 include 'springboot-ip2region'
+include 'springboot-task-quartz'
 

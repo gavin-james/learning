@@ -10,5 +10,4 @@ public class StackStruTest {
     int c = a + b;
   }
 
-
 }
