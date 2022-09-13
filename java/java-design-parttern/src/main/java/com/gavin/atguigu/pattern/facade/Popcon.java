@@ -13,18 +13,18 @@ public class Popcon {
   }
 
   public void on() {
-    System.out.println("dvd on");
+    System.out.println("pop on");
   }
 
   public void off() {
-    System.out.println("dvd  off");
+    System.out.println("pop  off");
   }
 
-  public void play() {
-    System.out.println("dvd is playing");
+  public void pop() {
+    System.out.println("pop is pop");
   }
 
   public void pause() {
-    System.out.println("dvd is pause");
+    System.out.println("pop is pause");
   }
 }

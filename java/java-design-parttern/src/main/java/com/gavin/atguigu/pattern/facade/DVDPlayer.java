@@ -2,6 +2,7 @@ package com.gavin.atguigu.pattern.facade;
 
 public class DVDPlayer {
 
+  // 使用单例模式
   private static DVDPlayer instance = new DVDPlayer();
 
   private DVDPlayer() {
