@@ -21,7 +21,6 @@ buildscript {
         // 阿里云 spring 代理仓库
         maven { url 'https://maven.aliyun.com/repository/spring/' }
         // 中央maven仓库
-        // jcenter()
         mavenCentral()
     }
 
@@ -30,8 +29,6 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
-
-//描述
 
 // 所有项目配置
 allprojects {
@@ -114,9 +111,9 @@ subprojects {
     }
 
     // 定义您的源文件应该被视为哪种语言版本的 Java。
-    sourceCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_17
     // 定义您的代码应该运行的最低 JVM 版本，即它确定编译器生成的字节码版本。
-    targetCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_17
 
     // 测试配置
     test {
