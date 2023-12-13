@@ -1,0 +1,8 @@
+qywx:
+  url: https://qyapi.weixin.qq.com
+  public-path: cgi-bin
+  corp-id: wxa44445e62d5493b8
+  application-list:
+    - secret: vQC-Xo9yDfqRwvaHJJ0rcbgGGBH1pFaxIy8AB49sCUs
+      agentId: 1000209
+      application-name: send-msg

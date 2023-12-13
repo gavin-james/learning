@@ -53,9 +53,9 @@ subprojects {
     }
 
     // 定义您的源文件应该被视为哪种语言版本的 Java。
-    sourceCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_1_8
     // 定义您的代码应该运行的最低 JVM 版本，即它确定编译器生成的字节码版本。
-    targetCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_1_8
 
     // 测试配置
     test {
