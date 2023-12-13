@@ -1,0 +1,13 @@
+qywx:
+  application-list:
+    - secret: vQC-Xo9yDfqRwvaHJJ0rcbgGGBH1pFaxIy8AB49sCUs
+      application-name: customer-app
+      application-desc: 第三方应用
+      agent-id: 1000209
+  url: https://qyapi.weixin.qq.com
+  public-path: cgi-bin
+  corp-id: wxa44445e62d5493b8
+logging:
+  level:
+    root: warn
+    com.github.shuaidd: debug

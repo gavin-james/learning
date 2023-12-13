@@ -27,7 +27,7 @@ allprojects {
     apply plugin: "io.spring.dependency-management"
 
     // 项目信息
-    group = "com.gavin"
+    group = "com.gavin.james"
     // 版本
     version = "0.0.1-SNAPSHOT"
 
@@ -68,14 +68,14 @@ subprojects {
         imports {
         }
         dependencies {
-            dependency("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
-                exclude "org.springframework.boot:spring-boot-starter-tomcat"
-            }
-            dependency("org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}") {
-                exclude "org.jboss.xnio:xnio-nio"
-            }
-
-            dependency "org.jboss.xnio:xnio-nio:${xnioVersion}"
+//            dependency("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
+//                exclude "org.springframework.boot:spring-boot-starter-tomcat"
+//            }
+//            dependency("org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}") {
+//                exclude "org.jboss.xnio:xnio-nio"
+//            }
+//
+//            dependency "org.jboss.xnio:xnio-nio:${xnioVersion}"
         }
     }
 
@@ -88,7 +88,7 @@ subprojects {
         )
 
         // 测试依赖
-        testImplementation("org.springframework.boot:spring-boot-starter-test:${springBootVersion}") {
+        testImplementation("org.springframework.boot:spring-boot-starter-test") {
             exclude group: "org.junit.vintage", module: "junit-vintage-engine"
         }
     }

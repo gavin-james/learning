@@ -1,5 +1,4 @@
 rootProject.name = 'java'
-include 'java-design-parttern'
 include 'java-shbw'
 include 'java-jvm'
 include 'java-extensions'
