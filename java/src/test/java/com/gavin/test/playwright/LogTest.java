@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
  * @author Gavin
  * @date 4/19/23 11:02 上午
  */
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class LogTest {
     // Shared between all tests in this class.
     Playwright playwright;
@@ -44,8 +45,11 @@ public class LogTest {
         this.browser = this.playwright.firefox().launch(new BrowserType.LaunchOptions()
                 .setHeadless(false));
         this.logContents = new ArrayList<>();
-        File file = new ClassPathResource("日志内容.xlsx").getFile();
-        EasyExcel.read(file, new PageReadListener<LogEntity>(logEntities -> logEntities.forEach(logEntity -> this.logContents.add(logEntity.getContent())))).sheet().doRead();
+        String logFileName = "日志内容-刘泉水.xlsx";
+        File file = new ClassPathResource(logFileName).getFile();
+        EasyExcel.read(file, LogEntity.class, new PageReadListener<LogEntity>(logEntities ->
+                logEntities.forEach(logEntity -> this.logContents.add(logEntity.getContent()))
+        )).sheet().doRead();
     }
 
     /**
@@ -209,10 +213,10 @@ public class LogTest {
 
             editModel.getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("保存")).click();
 
-            this.page.waitForRequest(req -> req.url().contains("bgyfy/gzlgl_fylr/handleInsert.jsp"), new Page.WaitForRequestOptions()
-                    .setTimeout(30_000), () -> {
-                System.out.println("完成添加");
-            });
+//            this.page.waitForRequest(req -> req.url().contains("bgyfy/gzlgl_fylr/handleInsert.jsp"), new Page.WaitForRequestOptions()
+//                    .setTimeout(30_000), () -> {
+//                System.out.println("完成添加");
+//            });
         }
     }
 

@@ -2,7 +2,8 @@ package com.gavin.test.playwright;
 
 
 import cn.hutool.core.io.FileUtil;
-import cn.hutool.core.io.resource.ResourceUtil;
+
+import java.io.File;
 
 /**
  * This class is for xxxx.
@@ -11,10 +12,10 @@ import cn.hutool.core.io.resource.ResourceUtil;
  */
 public class ResourceUtils {
     public static String getFileStr(String filePath) {
-        return ResourceUtil.readUtf8Str(filePath);
+        return FileUtil.readUtf8String(new File("src/test/resources/" + filePath));
     }
 
     public static void writeFile(String data, String filePath) {
-        FileUtil.writeUtf8String(data, ResourceUtil.getResource(filePath).getFile());
+        FileUtil.writeUtf8String(data, new File("src/test/resources/" + filePath));
     }
 }

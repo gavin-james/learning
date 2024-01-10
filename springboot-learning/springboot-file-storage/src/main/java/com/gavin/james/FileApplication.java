@@ -1,14 +1,15 @@
 package com.gavin.james;
 
-import com.github.shuaidd.autoconfigure.EnableWeChat;
+import org.dromara.x.file.storage.spring.EnableFileStorage;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@EnableWeChat
-public class QywxApplication {
+@EnableFileStorage
+public class FileApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(QywxApplication.class, args);
+        SpringApplication.run(FileApplication.class, args);
     }
 
 }

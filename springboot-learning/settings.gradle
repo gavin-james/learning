@@ -57,3 +57,5 @@ include 'springboot-leaf'
 include 'springboot-justauth'
 include 'springboot-hellowrold'
 include 'springboot-easyexcel'
+include 'springboot-file-storage'
+

@@ -9,5 +9,5 @@ qywx:
   corp-id: wxa44445e62d5493b8
 logging:
   level:
-    root: warn
-    com.github.shuaidd: debug
+    root: info
+    com.github.shuaidd: info

@@ -1,0 +1,7 @@
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-undertow"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.jboss.xnio:xnio-nio"
+    implementation 'org.dromara.x-file-storage:x-file-storage-spring:2.0.0'
+    implementation 'io.minio:minio:8.5.2'
+}
