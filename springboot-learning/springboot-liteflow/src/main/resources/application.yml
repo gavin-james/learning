@@ -1,0 +1,2 @@
+liteflow:
+  rule-source: liteflow/*.el.yml

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                var param = {
+                    dljzProvince: "",
+                    dlzjNo: "",
+                    dlzjName: "",
+                    dljzOrgType: "",
+                    currentPage: 1,
+                    pageSize: 6,
+                    from: "1",
+                    key: "74165095eeb0433db02c1b58ac57c642",
+                    requestTime: "",
+                    sign: ""
+                }
+                var requestTime = new Date().getTime() + "";
+                var sign = md5('dljzjgcx' + requestTime);
+                param.requestTime = requestTime
+                param.sign = sign
+                var _param = {
+                    param: JSON.stringify(param)
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: "https://app.gjzwfw.gov.cn/jimps/link.do",
+                    data: _param,
+                    success: function (data) {
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<button>发送一个 HTTP GET 请求并获取返回结果</button>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+flow:
+  chain:
+    - name: serial
+      value: "THEN(a, b, c)"
+    - name: data
+      value: "THEN(datanode1, datanode2, datanode3)"
+    - name: parallelchain
+      value: "WHEN(a, b, c)"
+    - name: switchnode
+      value: "SWITCH(switchnode).to(switchnode1, switchnode3, switchnode3)"

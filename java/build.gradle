@@ -33,6 +33,7 @@ dependencies {
     implementation 'io.jsonwebtoken:jjwt-jackson:0.12.3'
     implementation 'org.ehcache:ehcache:3.10.8'
     implementation 'com.google.zxing:core:3.3.3'
+    implementation 'com.dtflys.forest:forest-core:1.5.33'
     // 注解依赖
     annotationProcessor(
             // lombok 简化开发

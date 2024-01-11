@@ -1,10 +1,14 @@
 package com.gavin.test.hutool;
 
+import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.net.url.UrlQuery;
 import cn.hutool.core.util.ClassUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.digest.MD5;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.http.webservice.SoapClient;
+import cn.hutool.json.JSONUtil;
+import com.gavin.test.playwright.ReqEntity;
 import org.junit.jupiter.api.Test;
 
 import java.net.URL;
@@ -43,4 +47,34 @@ public class HutoolTest {
 //        System.out.println(url);
     }
 
+    @Test
+    void getOrganization() {
+        String url = "http://app.gjzwfw.gov.cn/jimps/link.do";
+        ReqEntity reqEntity = new ReqEntity();
+        reqEntity.setDljzProvince("");
+        reqEntity.setDlzjNo("");
+        reqEntity.setDlzjName("");
+        reqEntity.setDljzOrgType("");
+        reqEntity.setCurrentPage(1);
+        reqEntity.setPageSize(6);
+        reqEntity.setFrom("1");
+        reqEntity.setKey("74165095eeb0433db02c1b58ac57c642");
+        String requestTime = String.valueOf(DateUtil.current());
+        String sign = MD5.create().digestHex("dljzjgcx" + requestTime);
+        reqEntity.setRequestTime(requestTime);
+        reqEntity.setSign(sign);
+        String jsonStr = JSONUtil.toJsonStr(reqEntity);
+
+        System.out.println(jsonStr);
+//        HttpRequest post = HttpUtil.createPost(url)
+//                .form("param", jsonStr);
+//        post.contentType("application/x-www-form-urlencoded; charset=UTF-8");
+//        HttpResponse execute = post.execute();
+//        System.out.println(execute.headers());
+//        System.out.println(execute.body());
+    }
+
+    @Test
+    void timeTest() {
+    }
 }

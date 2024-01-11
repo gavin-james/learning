@@ -1,1 +1,161 @@
-fajslga
+// 底部js链接
+
+document.write("<script src='" + footJs + "'><\/script>");
+
+function subMit() {
+var code = $("#YZMcode").val();
+if (code == '') {
+openAlert('请输入验证码');
+return;
+}
+var flag = checkCode(code);
+if (flag != 1) {
+openAlert('验证码错误，请重新填写！');
+return;
+}
+openModel();
+var new_imgUrl = jmopenUrl + '/jmopen/verifyCode.do?width=100&height=55&random=' + Math.random();
+$("#verifyImg").attr("src", new_imgUrl)
+var code = $("#YZMcode").val('');
+
+var param = getCondition();
+param.currentPage = 1;
+param.pageSize = 6;
+query(param);
+}
+
+function getCondition() {
+var obj = {};
+
+$('#form input,select').each(function () {
+obj[$(this).attr('name')] = $(this).val();
+});
+return obj;
+}
+
+function query(param) {
+var requestTime = new Date().getTime() + "";
+var sign = md5('dljzjgcx' + requestTime);
+
+param.from = "1";
+param.key = '74165095eeb0433db02c1b58ac57c642';
+param.requestTime = requestTime;
+param.sign = sign;
+
+var _param = {
+param : JSON.stringify(param)
+};
+$('#dataBody').html('');
+
+// var url = 'http://xzsp.mof.gov.cn/CZB/wsearch/wsearch.getSearch.do?APPLYNO=' + number + '&SEARCHPASSWORD=' +password + '&' + new Date().getTime()
+$.ajax({
+type: 'POST',
+url: "http://app.gjzwfw.gov.cn/jimps/link.do",
+// dataType : 'json',
+data: _param,
+//async: false,
+
+//连接json数据并返回数据
+success: function (data) {
+closeModel();
+try {
+data = JSON.parse(data);
+pager(param.currentPage, data.pages);
+if (data.list.length < 1) {
+$(".result").css('display', 'block');
+$("#yesResult").css('display', 'none');
+$(".noData").css('display', 'block');
+} else {
+$(".result").css('display', 'block');
+$("#yesResult").css('display', 'block');
+$(".noData").css('display', 'none');
+
+var str = '';
+for (var i = 0; i < data.list.length; i++) {
+var obj = data.list[i];
+str += '<tr>' +
+'<td>' + obj['DLZJ_NAME'] + '</td>' +
+'<td>' + obj['DLZJ_NO'] + '</td>' +
+'<td>' + obj['DLJZ_CERTDATE'] + '</td>' +
+'<td>' + obj['DLJZ_LEADER'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_REPDATE'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_STATUS'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_LOCATION'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_ORGFORM'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_TOTALINVES'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_ORGTYPE'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_BUS_LEADER'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_PHONE'] + '</td>' +
+'<td style="display:none;">' + obj['DLJX_EMAIL'] + '</td>' +
+'<td style="display:none;">' + obj['DLJZ_ADDR'] + '</td>' +
+'<td><span style="cursor: pointer" class="Rdetail" onclick="showDljzDetail(this)">查看</span></td>' +
+'</tr>'
+}
+
+$('#dataBody').html(str);
+}
+centerRheight();
+}catch (e){
+openAlert('发生错误！');
+}
+},
+error: function (data) {
+closeModel();
+//console.log('调用失败' + data)
+}
+})
+}
+
+function subRes() {
+$(".result").css('display', 'none');
+$('.formCode input,select').val('');
+var new_imgUrl = jmopenUrl + '/jmopen/verifyCode.do?width=100&height=55&random=' + Math.random();
+$("#verifyImg").attr("src", new_imgUrl);
+centerRheight();
+}
+
+function pager(currentPage, totalPage) {
+if(!totalPage || totalPage<2){
+$('.fy_bg').hide();
+}else{
+$('.fy_bg').show();
+}
+$("#page").paging({
+pageNo: currentPage, //默认第一页
+totalPage: totalPage, //10,//总页数
+totalSize: 5,//5,//小于总页数时显示上下页字样,则反之
+callback: function (num) {
+var param = getCondition();
+param.currentPage = num;
+param.pageSize = 6;
+query(param);
+}
+});
+}
+
+function showDljzDetail(me) {
+$(me).parent().parent().find("td").each(function (index, value) {
+if (index == 0) $("#dlzj_name").text($(value).text());
+if (index == 1) $("#dlzj_no").text($(value).text());
+if (index == 2) $("#dljz_certDate").text($(value).text());
+if (index == 3) $("#dljz_leader").text($(value).text());
+if (index == 5) $("#dljz_status").text($(value).text());
+if (index == 6) $("#dljz_location").text($(value).text());
+if (index == 7) $("#dljz_orgForm").text($(value).text());
+if (index == 8) $("#dljz_totalInves").text($(value).text());
+if (index == 9) $("#dljz_orgType").text($(value).text());
+if (index == 10) $("#dljz_bus_leader").text($(value).text());
+if (index == 11) $("#dljz_phone").text($(value).text());
+if (index == 12) $("#dljz_email").text($(value).text());
+if (index == 13) $("#dljz_addr").text($(value).text());
+});
+
+$("#bodyZZ").css("display", "block");
+$("#bodyZZ").css("height", document.body.clientHeight + "px");
+$("#detailDljzTable").css("display", "block");
+}
+
+function closeDljzTable() {
+$("#bodyZZ").css("display", "none");
+$("#detailDljzTable").css("display", "none");
+}
