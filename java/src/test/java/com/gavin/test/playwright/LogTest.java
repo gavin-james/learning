@@ -45,7 +45,7 @@ public class LogTest {
         this.browser = this.playwright.firefox().launch(new BrowserType.LaunchOptions()
                 .setHeadless(false));
         this.logContents = new ArrayList<>();
-        String logFileName = "日志内容-刘泉水.xlsx";
+        String logFileName = "日志内容.xlsx";
         File file = new ClassPathResource(logFileName).getFile();
         EasyExcel.read(file, LogEntity.class, new PageReadListener<LogEntity>(logEntities ->
                 logEntities.forEach(logEntity -> this.logContents.add(logEntity.getContent()))
@@ -194,7 +194,6 @@ public class LogTest {
             Locator locator = frameLocator.locator("#Tab1");
             // 这个为了防止加载不到数据
             locator.textContent();
-
             frameLocator.getByRole(AriaRole.BUTTON, new FrameLocator.GetByRoleOptions().setName("添加")).click();
             FrameLocator editModel = frameLocator.frameLocator("iframe[name=\"OpenmyArtDialog\"]");
             editModel.locator("#rcswRadio").click();

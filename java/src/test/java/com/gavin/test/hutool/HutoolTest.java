@@ -76,5 +76,25 @@ public class HutoolTest {
 
     @Test
     void timeTest() {
+        String qdpkpzd = "91310104057643445Y_QD";
+        for (int i = 0; i < 50; i++) {
+            if (i < 10) {
+//                System.out.print(qdpkpzd + "0" + i + ",");
+                System.out.println("INSERT INTO `swgxpt_test`.`swgx_jb_kpdxx` (`kpddm`, `kpdmc`, `yhzh`, `dzdh`, `fplxdm`, `nsrsbh`, `skr`, `fhr`, `deleted`, `kpr`, `dzpbz`, `mrkpzd`, `jqbh`, `type`, `login_type`, `zdzh`, `zdmm`, `phone`, `idno`, `zddz`, `tdyw`, `pzsbh`, `zhlx`, `last_verify_time`, `xfyhzh`, `xfdh`, `zpfwUrl`, `zpfw_url`, `zrrdlmm`, `dljslx`, `dljsmm`, `sfkqzpfw`, `bind_zpfw_success_status`, `kqht`, `kpms`, `time_interval`, `qqlsh`, `sfsl`, `sxlb`, `yjjb`, `credit_expire_msg_status`, `dllx`, `verify_result`, `ewmlx`, `dzswjdllx`, `dzswjdlfs`, `certurl`, `sksblx`, `sksbbh`, `sksbmm`, `jklx`, `smsuploadtype`, `last_login_time`, `qywx_user`, `qywx_user1`) VALUES ('" + qdpkpzd + "0" + i + "', '数电发票-测试使用', '上海', '1', '01,02', '91310104057643445Y', '', '', '0', '测试使用', NULL, 1, '0', '1', NULL, '12345678', '12345678', '17633737534', '12345678', NULL, '03', '12345678', NULL, NULL, '12345678', '1', NULL, NULL, NULL, '5', '12345678', 0, NULL, NULL, '1', 24, NULL, '', '', '', 0, NULL, NULL, '1', '0', 'A1', '', '', '', '', '1', '1', NULL, 'XuHongQiang', NULL);");
+
+            } else {
+//                System.out.print(qdpkpzd + i + ",");
+                System.out.println("INSERT INTO `swgxpt_test`.`swgx_jb_kpdxx` (`kpddm`, `kpdmc`, `yhzh`, `dzdh`, `fplxdm`, `nsrsbh`, `skr`, `fhr`, `deleted`, `kpr`, `dzpbz`, `mrkpzd`, `jqbh`, `type`, `login_type`, `zdzh`, `zdmm`, `phone`, `idno`, `zddz`, `tdyw`, `pzsbh`, `zhlx`, `last_verify_time`, `xfyhzh`, `xfdh`, `zpfwUrl`, `zpfw_url`, `zrrdlmm`, `dljslx`, `dljsmm`, `sfkqzpfw`, `bind_zpfw_success_status`, `kqht`, `kpms`, `time_interval`, `qqlsh`, `sfsl`, `sxlb`, `yjjb`, `credit_expire_msg_status`, `dllx`, `verify_result`, `ewmlx`, `dzswjdllx`, `dzswjdlfs`, `certurl`, `sksblx`, `sksbbh`, `sksbmm`, `jklx`, `smsuploadtype`, `last_login_time`, `qywx_user`, `qywx_user1`) VALUES ('" + qdpkpzd + i + "', '数电发票-测试使用', '上海', '1', '01,02', '91310104057643445Y', '', '', '0', '测试使用', NULL, 1, '0', '1', NULL, '12345678', '12345678', '17633737534', '12345678', NULL, '03', '12345678', NULL, NULL, '12345678', '1', NULL, NULL, NULL, '5', '12345678', 0, NULL, NULL, '1', 24, NULL, '', '', '', 0, NULL, NULL, '1', '0', 'A1', '', '', '', '', '1', '1', NULL, 'XuHongQiang', NULL);");
+
+            }
+
+        }
+
+    }
+
+    @Test
+    void xmlTest() {
+//        System.out.println(EscapeUtil.escapeXml("<!DOCTYPE html><html><head>电局页面信息</head><body></html>"));
+        System.out.println(DateUtil.currentSeconds());
     }
 }
