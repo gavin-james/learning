@@ -2,6 +2,8 @@ import cn.hutool.core.util.CharsetUtil;
 import org.junit.jupiter.api.Test;
 
 public class SHBWTest {
+
+
     @Test
     void zongkongText() {
         String str = "<?xml version=\"1.0\" encoding=\"gbk\"?>\n" +

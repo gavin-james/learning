@@ -12,7 +12,8 @@ import java.math.RoundingMode;
 public class FundTest {
     @Test
     void test() {
-        BigDecimal money = FundTest.convertToDecimal("10000");
+        // 初始资金
+        BigDecimal money = FundTest.convertToDecimal("40000");
         int month = 1;
         while (money.compareTo(FundTest.convertToDecimal("10000000")) < 0) {
             BigDecimal earnMoney = money.multiply(BigDecimal.valueOf(0.10));
@@ -30,7 +31,8 @@ public class FundTest {
 //            }
             System.out.println();
             DateTime dateTime = DateUtil.offsetMonth(DateUtil.date(), month);
-            System.out.println("需要到达" + DateUtil.formatDateTime(dateTime) + "才能挣到" + FundTest.convertToChinese(money) + "一个花费 " + month + " 个月");
+            System.out.println("需要到达" + DateUtil.formatDateTime(dateTime) + "才能挣到" + FundTest.convertToChinese(money) + "一个花费 " + month + " 个天");
+            month++;
         }
     }
 

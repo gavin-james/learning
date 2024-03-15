@@ -8,19 +8,39 @@ import cn.hutool.crypto.digest.MD5;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.http.webservice.SoapClient;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import com.gavin.test.playwright.ReqEntity;
 import org.junit.jupiter.api.Test;
 
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HutoolTest {
     @Test
     void sapTest() {
-        SoapClient arg0 = SoapClient.create("fsfafs")
+        SoapClient arg0 = SoapClient.create("http://WYPRD.com:8000/sap/bc/srt/wsdl/srvc_814E1B22FAD31EDE8F93C341713A8C0D/wsdl11/allinone/ws_policy/document?sap-client=800")
                 // 设置要请求的方法，此接口方法前缀为web，传入对应的命名空间
-                .setMethod("tns:ZFI_SDFP_FILL_RESULT", "urn:sap-com:document:sap:rfc:functions").setParam("arg0", "<![CDATA[" + "fasfa" + "]]>", false);
+                .setMethod("MT_BW2ECC_INVOICE_REQ", "urn:sap-com:document:sap:rfc:functions")
+                .setParam("djbh", "12234567", false)
+                .setParam("qdfphm", "12234567", false);
         System.out.println(arg0.getMsgStr(true));
+    }
+
+
+    @Test
+    void sap2Test() {
+        SoapClient arg0 = SoapClient.create("http://piqas.luolai.com:50000/dir/wsdl?p=ic/4baa712c37ed3dbdb4a530b6467b53df")
+                .header("Authorization", "Basic UElRX0JXUzpGV2l1ZGw4Sm5o")
+                // 设置要请求的方法，此接口方法前缀为web，传入对应的命名空间
+                .setMethod("n0:MT_BW2ECC_INVOICE_REQ", "http://luolai.com/baiwang")
+                .setParam("djbh", "12234567", false)
+                .setParam("qdfphm", "12234567", false);
+//
+        System.out.println(arg0.getMsgStr(true));
+        String send = arg0.send();
+//        System.out.println(send);
     }
 
     @Test
@@ -96,5 +116,18 @@ public class HutoolTest {
     void xmlTest() {
 //        System.out.println(EscapeUtil.escapeXml("<!DOCTYPE html><html><head>电局页面信息</head><body></html>"));
         System.out.println(DateUtil.currentSeconds());
+    }
+
+
+    @Test
+    void jsonTest() {
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "\nfjaijsfa");
+        System.out.println(JSONUtil.toJsonStr(map));
+        System.out.println();
+
+        String json = (String) JSON.toJSON(map);
+        System.out.println(JSON.parse(json));
+//        System.out.println(resource.getPath());
     }
 }
