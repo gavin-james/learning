@@ -1,8 +1,17 @@
 import cn.hutool.core.util.CharsetUtil;
+import com.gavin.shbw.HttpClientHelper;
 import org.junit.jupiter.api.Test;
 
 public class SHBWTest {
-
+    @Test
+    void ypjgText() {
+        try {
+            String res = HttpClientHelper.nowSaaSPost("http://api.baiwangjs.com/swgx-saas/agentinvoiceservice-cloudservice-cloudservice/agentiscloud/cloud/applyInvoice", "eyJxeUlkIjoiMjQwMzI3MTM1MzUyMDM2Mjk2OCIsImRkbHNoIjoiMDAwMDAwMDAwMjAyNDA0MDcwOTQ3NDgwMDA1Njk0NTAiLCJza3NiaCI6IjkxMzEwMDAwMDgwMDY2NTg2RCIsImZwbHhkbSI6IjAyIiwia3BseCI6IjAiLCJ0c3B6IjoiMDYiLCJ6c2ZzIjoiMCIsInFkYnoiOiIwIiwieHNmTWMiOiLkuIrmtbflqIHkuqzllYbkuJrnu4/okKXnrqHnkIbmnInpmZDlhazlj7giLCJ4c2ZOc3JzYmgiOiI5MTMxMDAwMDA4MDA2NjU4NkQiLCJ4c2ZEemRoIjoi5reu5rW35Lit6LevMzgx5Y+35Lit546v5bm/5Zy6MTh+fjIzMjk2OTA1IiwieHNmWWh6aCI6IuS4reWbvemTtuihjOS4remTtuWkp+WOpuaUr+ihjH5+NDU0NjY1MjQ3MzQ0IiwiZ21mTWMiOiLkuKrkuroiLCJnbWZOc3JzYmgiOiIiLCJnbWZEemRoIjoifn4iLCJnbWZZaHpoIjoifn4iLCJnbWZNb2JpbGUiOiIiLCJnbWZFbWFpbCI6IjI0OTU1Mzk4NzhAcXEuY29tIiwia3ByIjoi6JGj5L2z5oWnIiwianNoaiI6IjEuMDAiLCJoamplIjoiMC45MiIsImhqc2UiOiIwLjA4IiwiYnoiOiJUV09pdGPlgZzovablj5HnpagiLCJrY2UiOiIiLCJzcXIiOiLokaPkvbPmhaciLCJjaGVja0F1ZGl0IjoiMCIsImRsemgiOiIxODcyMTIwMjIxMyIsInpqaG0iOiIzMTAxMTMxOTk3MDcwMTE0MjYiLCJnbWZ6cnJicyI6IlkiLCJkZXRhaWxQYXJhbSI6W3siZnBoeHoiOiIwIiwiaHNieiI6IjAiLCJzcG1jIjoi5YGc6L2m6LS5Iiwic3BibSI6IjMwNDA1MDIwMjAyMDAwMDAwMDAiLCJkdyI6IuasoSIsImRqIjoiMC45MiIsInNsIjoiMSIsImplIjoiMC45MiIsInNlIjoiMC4wOCIsInNsdiI6IjAuMDkiLCJ5aHpjYnMiOiIxIiwienhibSI6IiJ9XSwiYmRjVGR5cyI6eyJiZGNkeiI6IuS4iua1t+W4guW+kOaxh+WMuiIsImZ1bGxBZGRyZXNzIjoi5oGt5Z+O6LevMTYw5Y+3IiwiemxxcXoiOiIyMDI0LTA0LTA3IDIwMjQtMDQtMDciLCJrZHNieiI6Ik4iLCJjcXpzaCI6IuaXoCIsImR3Ijoi5bmz5pa557GzIn19", "json", "36AwHga8HHYom8aXBlQe7536", "9J2Ge88mLvXZ4OYH2Qfhl2NGmKmK9g");
+            System.out.println(res);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @Test
     void zongkongText() {

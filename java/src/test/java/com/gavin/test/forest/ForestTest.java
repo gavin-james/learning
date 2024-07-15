@@ -84,6 +84,8 @@ public class ForestTest {
      */
     String buildBody() {
         String requestTime = String.valueOf(DateUtil.current());
+        this.bodyMap.put("dljzProvince", "310000");
+        this.bodyMap.put("dljzOrgType", "0");
         this.bodyMap.put("currentPage", this.currentPage);
         this.bodyMap.put("pageSize", this.pageSize);
         this.bodyMap.put("requestTime", requestTime);

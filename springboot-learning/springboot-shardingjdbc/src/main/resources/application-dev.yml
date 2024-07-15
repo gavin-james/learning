@@ -1,0 +1,57 @@
+# 表分片
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    # 使用Druid，写成url。使用Hikari写成jdbc-url
+    url: jdbc:mysql://192.168.1.216:10086/sharding?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+#  shardingsphere:
+#    props:
+#      sql:
+#        show: true
+#    datasource:
+#      ds0:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        driverClassName: com.mysql.jdbc.Driver
+#        # 使用Druid，写成url。使用Hikari写成jdbc-url
+#        jdbcUrl: jdbc:mysql://192.168.1.216:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+#        username: root
+#        password: root
+#      ds1:
+#        type: com.zaxxer.hikari.HikariDataSource
+#        driverClassName: com.mysql.jdbc.Driver
+#        jdbcUrl: jdbc:mysql://localhost:3306/test02?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8
+#        username: root
+#        password: root
+#      names: ds0,ds1
+#    sharding:
+#      # 默认的分库算法
+#      default-database-strategy:
+#        # 使用内联表达式来指定算法
+#        inline:
+#          algorithm-expression: ds$->{id % 2}
+#          sharding-column: id
+#      tables:
+#        user:
+#          actual-data-nodes: ds$->{0..1}.user$->{0..4}
+#          database-strategy:
+#            standard:
+#              sharding-column: age
+#              precise-algorithm-class-name: com.gavin.sharding.sharding.MyDBAgeShardingAlgorithm
+#          # 分表算法
+#          table-strategy:
+#            inline:
+#              sharding-column: id
+#              algorithm-expression: user$->{id % 2}
+#              # 使用内联表达式来分表
+#      # 对于具有join关系的两个表，则需要进行绑定表配置，预防笛卡尔积
+#      binding-tables:
+#        - user
+#      # 指定广播表
+#      broadcast-tables: dict
+##            inline:
+##              algorithm-expression: user$->{id % 4}
+##              sharding-column: id
+#

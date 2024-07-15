@@ -13,7 +13,7 @@ public class FundTest {
     @Test
     void test() {
         // 初始资金
-        BigDecimal money = FundTest.convertToDecimal("40000");
+        BigDecimal money = FundTest.convertToDecimal("110000");
         int month = 1;
         while (money.compareTo(FundTest.convertToDecimal("10000000")) < 0) {
             BigDecimal earnMoney = money.multiply(BigDecimal.valueOf(0.10));

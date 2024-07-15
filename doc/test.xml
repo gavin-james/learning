@@ -1,0 +1,9 @@
+Could not find artifact net.htjs.plat:htjs-dependencies:pom:1.0.1-SNAPSHOT
+        Parent 'net.htjs.agentinvoice:ht-cloudagentinvoice-server:1.0.0-SNAPSHOT' has problems
+        Unresolved dependency: 'net.htjs.starter:htjs-springboot-starter:jar:1.0.1-SNAPSHOT'
+
+
+
+
+
+

@@ -27,7 +27,7 @@ public class FileApplicationTest {
     void upload() throws JsonProcessingException {
 //        this.fileStorageService
         //手动构造文件信息，可用于其它操作
-        File file = FileUtil.file("/Users/mac/Documents/life/gavin-james/logo-rabbit.png");
+        File file = FileUtil.file("/Users/mac/Documents/研发服务器信息.docx");
         UploadPretreatment uploadPretreatment = this.fileStorageService.of(file);
         FileInfo upload = uploadPretreatment.upload();
         System.out.println(this.jackson.writeValueAsString(upload));
