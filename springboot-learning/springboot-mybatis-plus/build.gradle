@@ -1,4 +1,9 @@
 dependencies {
+    implementation(
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.boot:spring-boot-starter-undertow",
+            "org.jboss.xnio:xnio-nio"
+    )
     // 数据库相关依赖
     implementation "mysql:mysql-connector-java:8.0.25"
     implementation "com.baomidou:mybatis-plus-boot-starter:3.5.0"
@@ -10,5 +15,6 @@ dependencies {
     // jetbrains 注解
     implementation "org.jetbrains:annotations:22.0.0"
     // jetbrains 注解
+    implementation "cn.hutool:hutool-all:5.8.22"
     implementation 'commons-io:commons-io:2.11.0' // io 操作
 }

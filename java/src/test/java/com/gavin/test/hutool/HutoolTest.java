@@ -47,8 +47,7 @@ public class HutoolTest {
 //        System.out.println(resource.getPath());
 //        System.out.println("2");
         HttpRequest post1 = HttpRequest.post("www.baidu.com");
-        HttpResponse test = post1.body("test")
-                .executeAsync();
+        HttpResponse test = post1.body("test").executeAsync();
         System.out.println(test.body());
         System.out.println("1");
 
@@ -207,6 +206,9 @@ public class HutoolTest {
 
     @Test
     void math2Test() {
+        String str = "fasgadf";
+        str.contains("a");
+        str.replace("a", "d");
 //        Map<Integer, String> map = new HashMap<>();
 //        map.put(1, "One");
 //        map.put(2, "Two");
@@ -233,5 +235,29 @@ public class HutoolTest {
 //        tempStrList.add("123");
 //        tempStrList.add("123");
 //        System.out.println(String.join(",", tempStrList));
+    }
+
+    @Test
+    void xml3Test() {
+        ArrayList<String> list = new ArrayList<>();
+        Map<String, String> map = new HashMap<>();
+//        String htmlStr = ResourceUtils.getFileStr("test.html");
+//        Document doc = Jsoup.parse(htmlStr);
+//        Elements select = doc.select("input[id='ID']");
+//        for (Element element : select) {
+//            System.out.println(element.attr("rq"));
+//            System.out.println(element.attr("value"));
+//        }
+//        System.out.println(select.size());
+
+
+//        Elements select1 = doc.select("#JBDM");
+//        System.out.println(select1.get(0).val());
+
+//        System.out.println("10 * 10 = " + 10 * 10 + " \t10\t" + (double) 10 / (10 * 10));
+//        System.out.println("16 * 16 = " + 16 * 16 + " \t40\t" + (double) 40 / (16 * 16));
+//        System.out.println("30 * 16 = " + 30 * 16 + " \t99\t" + (double) 99 / (30 * 16));
+
+        System.out.println("2024-01-01 2024-01-20".substring(0, 7));
     }
 }

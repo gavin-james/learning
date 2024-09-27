@@ -35,6 +35,8 @@ dependencies {
     implementation 'com.google.zxing:core:3.3.3'
     implementation 'com.dtflys.forest:forest-core:1.5.33'
     implementation 'org.bouncycastle:bcprov-jdk15to18:1.66'
+    implementation 'org.jsoup:jsoup:1.18.1'
+
     // 注解依赖
     annotationProcessor(
             // lombok 简化开发

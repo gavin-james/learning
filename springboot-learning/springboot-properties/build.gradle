@@ -1,0 +1,11 @@
+dependencies {
+    implementation(
+            "org.springframework.boot:spring-boot-starter-web",
+            "org.springframework.boot:spring-boot-starter-undertow",
+    )
+    // 注解依赖
+    annotationProcessor(
+            // 配置文件解析
+            'org.springframework.boot:spring-boot-configuration-processor'
+    )
+}

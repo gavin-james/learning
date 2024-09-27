@@ -10,13 +10,13 @@ import com.gavin.mapstruct.entity.vo.UserVo4;
 import com.gavin.mapstruct.enums.UserTypeEnum;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import javax.annotation.Generated;
+import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-07-12T15:56:39+0800",
-    comments = "version: 1.5.0.Beta2, compiler: javac, environment: Java 1.8.0_392 (Amazon.com Inc.)"
+    date = "2024-09-27T11:06:26+0800",
+    comments = "version: 1.5.0.Beta2, compiler: javac, environment: Java 17.0.12 (Amazon.com Inc.)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
@@ -27,14 +27,14 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        UserVo1 userVo1 = new UserVo1();
+        UserVo1.UserVo1Builder userVo1 = UserVo1.builder();
 
-        userVo1.setId( user.getId() );
-        userVo1.setName( user.getName() );
-        userVo1.setCreateTime( user.getCreateTime() );
-        userVo1.setUpdateTime( user.getUpdateTime() );
+        userVo1.id( user.getId() );
+        userVo1.name( user.getName() );
+        userVo1.createTime( user.getCreateTime() );
+        userVo1.updateTime( user.getUpdateTime() );
 
-        return userVo1;
+        return userVo1.build();
     }
 
     @Override
@@ -43,14 +43,14 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        User user = new User();
+        User.UserBuilder user = User.builder();
 
-        user.setId( userVo1.getId() );
-        user.setName( userVo1.getName() );
-        user.setCreateTime( userVo1.getCreateTime() );
-        user.setUpdateTime( userVo1.getUpdateTime() );
+        user.id( userVo1.getId() );
+        user.name( userVo1.getName() );
+        user.createTime( userVo1.getCreateTime() );
+        user.updateTime( userVo1.getUpdateTime() );
 
-        return user;
+        return user.build();
     }
 
     @Override
@@ -59,13 +59,13 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        UserVo2 userVo2 = new UserVo2();
+        UserVo2.UserVo2Builder userVo2 = UserVo2.builder();
 
-        userVo2.setId( user.getId() );
-        userVo2.setName( user.getName() );
-        userVo2.setCreateTime( user.getCreateTime() );
+        userVo2.id( user.getId() );
+        userVo2.name( user.getName() );
+        userVo2.createTime( user.getCreateTime() );
 
-        return userVo2;
+        return userVo2.build();
     }
 
     @Override
@@ -74,19 +74,19 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        UserVo3 userVo3 = new UserVo3();
+        UserVo3.UserVo3Builder userVo3 = UserVo3.builder();
 
         if ( user.getId() != null ) {
-            userVo3.setId( String.valueOf( user.getId() ) );
+            userVo3.id( String.valueOf( user.getId() ) );
         }
-        userVo3.setName( user.getName() );
+        userVo3.name( user.getName() );
         if ( user.getUpdateTime() != null ) {
-            userVo3.setUpdateTime( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( user.getUpdateTime() ) );
+            userVo3.updateTime( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( user.getUpdateTime() ) );
         }
 
-        userVo3.setCreateTime( com.gavin.mapstruct.utils.DateTransform.strToDate(user.getCreateTime()) );
+        userVo3.createTime( com.gavin.mapstruct.utils.DateTransform.strToDate(user.getCreateTime()) );
 
-        return userVo3;
+        return userVo3.build();
     }
 
     @Override
@@ -95,20 +95,20 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        User user = new User();
+        User.UserBuilder user = User.builder();
 
         if ( userVo3.getId() != null ) {
-            user.setId( Integer.parseInt( userVo3.getId() ) );
+            user.id( Integer.parseInt( userVo3.getId() ) );
         }
-        user.setName( userVo3.getName() );
+        user.name( userVo3.getName() );
         if ( userVo3.getCreateTime() != null ) {
-            user.setCreateTime( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( userVo3.getCreateTime() ) );
+            user.createTime( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( userVo3.getCreateTime() ) );
         }
         if ( userVo3.getUpdateTime() != null ) {
-            user.setUpdateTime( LocalDateTime.parse( userVo3.getUpdateTime() ) );
+            user.updateTime( LocalDateTime.parse( userVo3.getUpdateTime() ) );
         }
 
-        return user;
+        return user.build();
     }
 
     @Override
@@ -117,18 +117,18 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        UserVo4 userVo4 = new UserVo4();
+        UserVo4.UserVo4Builder userVo4 = UserVo4.builder();
 
         if ( user.getId() != null ) {
-            userVo4.setUserId( String.valueOf( user.getId() ) );
+            userVo4.userId( String.valueOf( user.getId() ) );
         }
-        userVo4.setUserName( user.getName() );
-        userVo4.setCreateTime( user.getCreateTime() );
+        userVo4.userName( user.getName() );
+        userVo4.createTime( user.getCreateTime() );
         if ( user.getUpdateTime() != null ) {
-            userVo4.setUpdateTime( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( user.getUpdateTime() ) );
+            userVo4.updateTime( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( user.getUpdateTime() ) );
         }
 
-        return userVo4;
+        return userVo4.build();
     }
 
     @Override
@@ -137,14 +137,14 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        User user = new User();
+        User.UserBuilder user = User.builder();
 
-        user.setCreateTime( userVo3.getCreateTime() );
+        user.createTime( userVo3.getCreateTime() );
         if ( userVo3.getUpdateTime() != null ) {
-            user.setUpdateTime( LocalDateTime.parse( userVo3.getUpdateTime() ) );
+            user.updateTime( LocalDateTime.parse( userVo3.getUpdateTime() ) );
         }
 
-        return user;
+        return user.build();
     }
 
     @Override
@@ -153,15 +153,15 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        UserEnumVo userEnumVo = new UserEnumVo();
+        UserEnumVo.UserEnumVoBuilder userEnumVo = UserEnumVo.builder();
 
-        userEnumVo.setId( userEnum.getId() );
-        userEnumVo.setName( userEnum.getName() );
+        userEnumVo.id( userEnum.getId() );
+        userEnumVo.name( userEnum.getName() );
         if ( userEnum.getUserTypeEnum() != null ) {
-            userEnumVo.setUserTypeEnum( userEnum.getUserTypeEnum().name() );
+            userEnumVo.userTypeEnum( userEnum.getUserTypeEnum().name() );
         }
 
-        return userEnumVo;
+        return userEnumVo.build();
     }
 
     @Override
@@ -170,14 +170,14 @@ public class UserMapperImpl implements UserMapper {
             return null;
         }
 
-        UserEnum userEnum = new UserEnum();
+        UserEnum.UserEnumBuilder userEnum = UserEnum.builder();
 
-        userEnum.setId( userEnumVo.getId() );
-        userEnum.setName( userEnumVo.getName() );
+        userEnum.id( userEnumVo.getId() );
+        userEnum.name( userEnumVo.getName() );
         if ( userEnumVo.getUserTypeEnum() != null ) {
-            userEnum.setUserTypeEnum( Enum.valueOf( UserTypeEnum.class, userEnumVo.getUserTypeEnum() ) );
+            userEnum.userTypeEnum( Enum.valueOf( UserTypeEnum.class, userEnumVo.getUserTypeEnum() ) );
         }
 
-        return userEnum;
+        return userEnum.build();
     }
 }

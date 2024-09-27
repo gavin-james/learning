@@ -5,11 +5,8 @@ buildscript {
     // 自定义参数
     ext {
         // 具体版本依赖可以去 https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E 找相应的版本
-        springBootVersion = "2.3.12.RELEASE"
-        springCloudVersion = "Hoxton.SR12"
-        xnioVersion = "3.8.7.Final"
+        springBootVersion = "3.0.2"
     }
-
 
     // springboot gradle 打包插件依赖
     dependencies {
@@ -34,9 +31,9 @@ allprojects {
     // 将子项目打成jar包
     java {
         // 定义您的源文件应该被视为哪种语言版本的 Java。
-        sourceCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
         // 定义您的代码应该运行的最低 JVM 版本，即它确定编译器生成的字节码版本。
-        targetCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     // 依赖范围配置修改
@@ -66,18 +63,12 @@ subprojects {
     // 依赖管理
     dependencyManagement {
         imports {
-            // Spring-Cloud 依赖
-            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+            mavenBom "de.codecentric:spring-boot-admin-dependencies:3.0.2"
         }
         dependencies {
             dependency("org.springframework.boot:spring-boot-starter-web:${springBootVersion}") {
                 exclude "org.springframework.boot:spring-boot-starter-tomcat"
             }
-            dependency("org.springframework.boot:spring-boot-starter-undertow:${springBootVersion}") {
-                exclude "org.jboss.xnio:xnio-nio"
-            }
-            dependency 'com.squareup.okhttp3:okhttp:4.10.0'
-            dependency "org.jboss.xnio:xnio-nio:${xnioVersion}"
         }
     }
 
@@ -86,8 +77,9 @@ subprojects {
         // 注解依赖
         annotationProcessor(
                 // lombok 简化开发
-                "org.projectlombok:lombok"
+                "org.projectlombok:lombok",
         )
+        implementation "cn.hutool:hutool-all:5.8.23"
 
         // 测试依赖
         testImplementation("org.springframework.boot:spring-boot-starter-test") {

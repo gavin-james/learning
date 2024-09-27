@@ -45,7 +45,7 @@ public class LogTest {
         this.browser = this.playwright.firefox().launch(new BrowserType.LaunchOptions()
                 .setHeadless(false));
         this.logContents = new ArrayList<>();
-        String logFileName = "日志内容-刘泉水.xlsx";
+        String logFileName = "日志内容.xlsx";
         File file = new ClassPathResource(logFileName).getFile();
         EasyExcel.read(file, LogEntity.class, new PageReadListener<LogEntity>(logEntities ->
                 logEntities.forEach(logEntity -> this.logContents.add(logEntity.getContent()))

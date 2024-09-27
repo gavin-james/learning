@@ -61,7 +61,7 @@ public class TaskConfig implements SchedulingConfigurer {
  * 定时任务
  * </p>
  *
- * @author yangkai.shen
+ * @author gavin james
  * @date Created in 2018-11-22 19:09
  */
 @Component

@@ -2,7 +2,6 @@ dependencies {
     implementation(
             "org.springframework.boot:spring-boot-starter-web",
             "org.springframework.boot:spring-boot-starter-undertow",
-            "org.jboss.xnio:xnio-nio",
             "org.springframework.boot:spring-boot-starter-actuator"
     )
 }

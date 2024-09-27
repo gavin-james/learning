@@ -1,47 +1,880 @@
-<!DOCTYPE html>
+<!doctype>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>菜鸟教程(runoob.com)</title>
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
+    <title>添加</title>
+    <meta http-equiv="cache-control" content="no-cache">
+    <link href="/server/OA/public/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/inc/platform/css/SpellCode.css">
+    <link rel="stylesheet" type="text/css" href="/server/OA/public/css/autoComplete/jquery-ui-1.8.17.custom.css">
+    <script src="/server/OA/public/js/JSCommon.js" type="text/javascript"></script>
+    <script src="/inc/platform/js/jQuery/jquery-1.7.2.min.js"></script>
+    <script src="/inc/platform/js/pubjs.js"></script>
+    <script src="/inc/platform/js/qx.js"></script>
+    <script src="/inc/platform/js/validator.js"></script>
+    <script src="/cbb/My97DatePicker/WdatePicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="/server/OA/public/css/autoComplete/jquery-ui-1.8.17.custom.css">
+    <script type="text/javascript" src="/server/OA/public/js/autoComplete/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="/server/OA/public/js/autoComplete/zzjg_czry_autoComplete.js"></script>
+    <script type="text/javascript" src="../treeAndautoComplete.js"></script>
+    <script type="text/javascript" src="/inc/platform/js/jQuery/artDialog/jquery.artDialog.js"></script>
+    <link rel="stylesheet" href="/inc/platform/js/jQuery/artDialog/skins/blue.css">
+    <script type="text/javascript">
+        include_js("/inc/platform/jsp/dm/spellCode/dm_czry.jsp");
+        include_js("/inc/platform/jsp/dm/spellCode/dm_zzjg.jsp?ZZJG_ALL=8a8a8a901645f6c501164666ca220045&ISDELETE=0");
+        var iTop = (window.screen.availHeight - 500 + 100) / 2;       //获得窗口的垂直位置;
+        var iLeft = (window.screen.availWidth - 250 + 100) / 2;           //获得窗口的水平位置;
 
-    <script>
-        $(document).ready(function () {
-            $("button").click(function () {
-                var param = {
-                    dljzProvince: "",
-                    dlzjNo: "",
-                    dlzjName: "",
-                    dljzOrgType: "",
-                    currentPage: 1,
-                    pageSize: 6,
-                    from: "1",
-                    key: "74165095eeb0433db02c1b58ac57c642",
-                    requestTime: "",
-                    sign: ""
+        function initZZJG() {
+            var options = {
+                zzjg: {
+                    inputMc: 'XZBMMC',
+                    inputDm: 'XZBM',
+                    source: '/server/OA/public/jsp/autoComplete/dm_zzjg_autoComplete.jsp'
                 }
-                var requestTime = new Date().getTime() + "";
-                var sign = md5('dljzjgcx' + requestTime);
-                param.requestTime = requestTime
-                param.sign = sign
-                var _param = {
-                    param: JSON.stringify(param)
-                };
-                $.ajax({
-                    type: 'POST',
-                    url: "https://app.gjzwfw.gov.cn/jimps/link.do",
-                    data: _param,
-                    success: function (data) {
-                    }
-                });
-            });
-        });
+            };
+            initAutoComplete(options);
+        }
+
+    </script>
+    <style type="text/css">
+        body {
+            font-size: 12px;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        function checkinput() {
+            var gzrqStr = $('#gzrq').val(); //工作日期字符串
+            gzrqStr = gzrqStr.replace(/-/g, '/');
+            var gzrqDate = new Date(gzrqStr); //工作日期
+            var nowDate = new Date(new Date().setHours(0, 0, 0, 0)); //获取当前凌晨日期
+            var blank_day = (nowDate - gzrqDate) / (1000 * 86400); //工作日期比当前日期早多少天
+            if (false) {
+                if (blank_day > 7) {
+                    alert('添加失败，不能补录七天前的报工！');
+                    return;
+                }
+            } else {
+                if (blank_day > 3) {
+                    alert('添加失败，不能补录三天前的报工！');
+                    return;
+                }
+            }
+
+
+            if (!Validator.Validate(forma)) {
+                return false;
+            }
+            var xmid = document.getElementById("XMID").value;
+            var hthm = document.getElementById("HTHM").value;
+            var xzbm = document.getElementById("XZBM").value;
+            //var xmmc=document.getElementById("XMMC").value;
+            var aa = document.getElementById("cyxmRadio").checked;
+            var bb = document.getElementById("xzbmRadio").checked;
+
+            xmid = xmid.replace(/(^\s*)|(\s*$)/g, "");
+
+            if (xmid == "" && aa == true) {
+                alert("请选择项目！");
+                return false;
+            }
+
+            if (xzbm == "" && bb == true) {
+                alert("请选择协助部门！");
+                return false;
+            }
+
+            forma.submit();
+
+        }
     </script>
 </head>
-<body>
+<body onload="init();initZZJG();">
+<form name="forma" id="forma" method="post" target="bdSave" action="handleInsert.jsp?qxxkdm=null"
+      onsubmit="return Validator.Validate(this);">
+    <link rel="stylesheet" href="/inc/platform/js/layui/layui/css/layui.css" media="all">
+    <style type="text/css">
+        body {
+            font-size: 12px;
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+    <div class="main">
+        <div class="top_title_pop">
+            <span class="name">添加工作量</span>
+            <div class="tools_but">
+            </div>
+        </div>
+        <table border="0" cellpadding="0" cellspacing="0" class="normalTable" width="100%">
+            <input type="hidden" id="ACCOUNTID" name="ACCOUNTID" value="1"> <input type="hidden" id="JBDM" name="JBDM"
+                                                                                   value="0001233101">
+            <tbody>
+            <tr>
+                <td class="normalTd label" colspan="4" style="text-align:left;"><input type="hidden" name="ID"
+                                                                                       value="2409051134310001"> <input
+                        type="hidden" id="GZXZ" name="GZXZ" value="xm"> <input type="radio" id="cyxmRadio"
+                                                                               name="GZXZ_RADIO" value="xm" checked
+                                                                               onclick="$F('GZXZ').value=this.value">参与项目 <!-- <input name="XMMC" style="width: 20%" role="textbox" id="XMMC"	type="text"  maxlength="32">
+						<input name="XMID" id="XMID" type="hidden" value=""> --> <select name="XMID" datatype="Require"
+                                                                                         msg="请选择项目" id="XMID"
+                                                                                         style="width:20%">
+                    <option value="">请选择</option>
+                </select> &nbsp;&nbsp;&nbsp;&nbsp; <input type="radio" id="xzbmRadio" name="GZXZ_RADIO" value="xzbm"
+                                                          onclick="$F('GZXZ').value=this.value"><span
+                        id="xzbmRadio_name">协助其他部门</span> <input type="text" id="XZBMMC" name="XZBMMC" value=""
+                                                                       class="spellCode" dm_filed="XZBM"
+                                                                       source_code="dm_zzjg" datatype="Require"
+                                                                       msg="请选择协助部门" size="20"> <input
+                        type="hidden" id="XZBM" name="XZBM" value="" datatype="Require" msg="请选择协助部门"> <input
+                        type="radio" id="rcswRadio" name="GZXZ_RADIO" value="rcsw"
+                        onclick="$F('GZXZ').value=this.value"><span id="rcswRadio_name">部门内事务</span></td>
+            </tr>
+            <tr id="tr_xmht" style="display: none">
+                <td width="10%" class="normalTd label">项目合同</td>
+                <td nowrap class="normalTd" colspan="3"><select name="HTHM" id="HTHM" style="width:70%;">
+                    <option value="">-- 请选择 --</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td class="normalTd label" width="20%">工作日期</td>
+                <td class="normalTd"><input id="gzrq" name="GZRQ" type="text" datatype="Require" msg="请输入工作日期"
+                                            class="Wdate" maxlength="20"
+                                            onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'%y-%M-%d'})"
+                                            value="2024-09-05"> <input id="nowTime" name="nowTime" type="hidden"
+                                                                       value="2024-09-05"></td>
+                <td class="normalTd" colspan="2">全天&nbsp;<input checked type="radio" name="timezoon" id="full">&nbsp;&nbsp;上午&nbsp;<input
+                        type="radio" name="timezoon" id="morning">&nbsp;&nbsp;下午&nbsp;<input type="radio"
+                                                                                               name="timezoon"
+                                                                                               id="afternoon"></td>
+            </tr>
+            <tr>
+                <td class="normalTd label" width="20%">开始时间</td>
+                <td class="normalTd" width="30%"><input id="starttime" name="STARTTIME" type="text" class="Wdate"
+                                                        datatype="Require" msg="请输入开始时间" maxlength="20" value=""
+                                                        onfocus="datePickerOption(this);" readonly></td>
+                <td class="normalTd label" width="20%">结束时间</td>
+                <td class="normalTd"><!--夏季  --><input id="endtime" name="ENDTIME" type="text" class="box0 must"
+                                                         datatype="Require" msg="请输入结束时间" maxlength="7" value=""
+                                                         onfocus="datePickerOption(this);" readonly>
+                    <!--冬季<input id="endtime" name="ENDTIME" type="text" class="Wdate" dataType="Require" msg="请输入结束时间" maxlength="7" value="17:30" onfocus="datePickerOption(this);" readonly="readonly">  -->
+                </td>
+            </tr>
+            <tr>
+                <td class="normalTd label" width="20%">工作时长</td>
+                <td class="normalTd"><input id="gzsc" name="GZSC" type="text" datatype="Require" msg="请输入工作时长"
+                                            maxlength="22" readonly></td>
+                <td class="normalTd" width="42%" style="display: none"><!--夏季 --> <input id="xxsc" name="XXSC"
+                                                                                           type="text" class="box0 must"
+                                                                                           datatype="Require"
+                                                                                           msg="请输入休息时长"
+                                                                                           maxlength="22">
+                    <!--冬季<input id="xxsc" name="XXSC" type="text" dataType="Require" msg="请输入休息时长" maxlength="22" value="2">  -->
+                </td>
+            </tr>
+            <tr>
+                <td class="normalTd label" width="10%">工作内容</td>
+                <td class="normalTd" colspan="3"><textarea rows="9" id="GZNR" class="must" cols="80" name="GZNR"
+                                                           datatype="Require" msg="请输入工作内容"></textarea></td>
+            </tr>
+            </tbody>
+        </table>
+        <font color="red">注：休息时间包括中午午休或晚上休息时间。补录报工只能录入标准工作时长!</font>
+        <center>
+            <!-- <input type="button" class="input_4em" name="yfybc" id="yfybc" onclick="checkinput()" value="有费用保存">
+                   &nbsp;&nbsp; --> <input type="button" class="input_4em" name="wfybc" id="wfybc"
+                                           onclick="checkinput()" value="保存"> &nbsp;&nbsp; <input type="button"
+                                                                                                    class="input_2em"
+                                                                                                    value="取 消"
+                                                                                                    onclick="parent.closeDialog()">
+        </center>
+    </div>
+    <script src="/inc/platform/js/layui/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript">
 
-<button>发送一个 HTTP GET 请求并获取返回结果</button>
+        var swsbsj = '08:30' == "" ? "8:00" : '08:30';
+        var swxbsj = '12:00' == "" ? "12:00" : '12:00';
+        var xwsbsj = '13:30' == "" ? "14:30" : '13:30';
+        var xwxbsj = '17:30' == "" ? "18:00" : '17:30';
+        layui.use('layer', function () {
+            var $ = layui.jquery, layer = layui.layer;
+            $("#XMID").change(function () {
+                var date = $('#gzrq').val();
+                var xmid = $("#XMID").val()
+                if (xmid != '') {
+                    var mxids = [{
+                        "XMMC": "税务共享SaaS云版实施",
+                        "XMID": "2306131848230001",
+                        "XMJL": "8a8a8a8e38c663350138c663357a0000",
+                        "XMJL_MC": "付朝博",
+                        "CPX_MC": "税务共享SAAS结算"
+                    }, {
+                        "XMMC": "税务共享平台（项目）",
+                        "XMID": "2003091428390001",
+                        "XMJL": "8a8a8a821830ae1701183ad2f45318b7",
+                        "XMJL_MC": "张磊01",
+                        "CPX_MC": "原财务共享项目"
+                    }, {
+                        "XMMC": "税务共享平台",
+                        "XMID": "2009251707130001",
+                        "XMJL": "8a8a8a8e306e1823013087dc8a0e0038",
+                        "XMJL_MC": "王伟光",
+                        "CPX_MC": "原财务共享项目"
+                    }, {
+                        "XMMC": "税务共享（省外）",
+                        "XMID": "2307041209490001",
+                        "XMJL": "8a8a8a821830ae1701183abe3a4b184d",
+                        "XMJL_MC": "王旺",
+                        "CPX_MC": "原财务共享项目"
+                    }];
+                    var b = false;
+                    for (var i = 0; i < mxids.length; i++) {
+                        if (xmid == mxids[i].XMID) {
+                            b = true;
+                        }
+                    }
+                    if (b) {
+                        $("#HTHM").html('');
+                        $.ajax({
+                            async: false,
+                            url: "inc/getXmht.jsp?XMID=" + xmid,
+                            type: "get",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == 0) {
+                                    var html = '<option value="">-- 请选择 --</option>';
+                                    var list = data.data
+                                    for (var i = 0; i < list.length; i++) {
+                                        html += '<option value="' + list[i].HTHM + '">' + list[i].KHMC + ' ' + list[i].HTHM + '</option>'
+                                    }
+                                    $("#HTHM").html(html);
+                                }
+                            }
+                        })
+                        $("#tr_xmht").show();
+                    }
 
+                    $.ajax({
+                        async: false,
+                        url: "inc/getJob.jsp?date=" + date,
+                        type: "get",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.code == 0) {
+                                var taskData = data.data
+                                var taskList = taskData.taskList;
+                                var bugList = taskData.bugList
+                                var taskNames = ''
+                                if (taskList.length == 0 && bugList == 0) {
+                                    return false
+                                } else {
+                                    if (taskList.length > 0) {
+                                        taskNames = taskNames + '任务：\n'
+                                        // 处理任务
+                                        for (let i = 0; i < taskList.length; i++) {
+                                            let taskValue = taskList[i]
+                                            let taskName = taskValue.name
+                                            taskNames = taskNames + (i + 1) + '. ' + taskName + '\n'
+                                        }
+                                    }
+                                    // 处理bug
+                                    if (bugList.length > 0) {
+                                        taskNames = taskNames + 'BUG：\n'
+                                        for (let i = 0; i < bugList.length; i++) {
+                                            let bugValue = bugList[i]
+                                            let bugName = bugValue.title
+                                            taskNames = taskNames + (i + 1) + '. ' + bugName + '\n'
+                                        }
+                                    }
+                                    layer.open({
+                                        type: 1,
+                                        title: '禅道任务',
+                                        closeBtn: false,
+                                        area: ['420px', '380px'],
+                                        btn: ['确定', '关闭'],
+                                        content: "<div style='padding: 10px'><textarea rows=\"15\" readonly class=\"must\" cols=\"50\">" + taskNames + "</textarea></div>",
+                                        yes: function () {
+                                            $('#GZNR').val(taskNames)
+                                            layer.closeAll();
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    })
+                }
+                $.ajax({
+                    async: false,
+                    url: "inc/getActiveRecordObj.jsp?date=" + dateChange,
+                    type: "get",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 0) {
+                            var recordList = data.data
+                            if (recordList.length == 0) {
+                                return false
+                            } else {
+                                if (recordList.length > 0) {
+                                    let record = "纷享销客跟进记录:\n";
+                                    for (let i = 0; i < recordList.length; i++) {
+                                        let recordValue = recordList[i]
+                                        record = record + recordValue + '\n';
+                                    }
+                                    layer.open({
+                                        type: 1,
+                                        title: '纷享销客跟进记录',
+                                        closeBtn: false,
+                                        area: ['420px', '380px'],
+                                        btn: ['确定', '关闭'],
+                                        content: "<div style='padding: 10px'><textarea rows=\"15\" readonly class=\"must\" cols=\"50\">" + record + "</textarea></div>",
+                                        yes: function () {
+                                            $('#GZNR').val(record);
+                                            layer.closeAll();
+                                        }
+                                    })
+                                }
+
+                            }
+                        }
+                    }
+                })
+            })
+            $('#gzrq').change(function () {
+                var dateChange = $('#gzrq').val();
+                var xmid = $("#XMID").val()
+                if (xmid != '') {
+                    $.ajax({
+                        async: false,
+                        url: "inc/getJob.jsp?date=" + dateChange,
+                        type: "get",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.code == 0) {
+                                var taskData = data.data
+                                var taskList = taskData.taskList;
+                                var bugList = taskData.bugList
+                                var taskNames = ''
+                                if (taskList.length == 0 && bugList == 0) {
+                                    return false
+                                } else {
+                                    if (taskList.length > 0) {
+                                        taskNames = taskNames + '任务：\n'
+                                        // 处理任务
+                                        for (let i = 0; i < taskList.length; i++) {
+                                            let taskValue = taskList[i]
+                                            let taskName = taskValue.name
+                                            taskNames = taskNames + (i + 1) + '. ' + taskName + '\n'
+                                        }
+                                    }
+
+                                    // 处理bug
+                                    if (bugList.length > 0) {
+                                        taskNames = taskNames + '处理BUG：\n'
+                                        for (let i = 0; i < bugList.length; i++) {
+                                            let bugValue = bugList[i]
+                                            let bugName = bugValue.title
+                                            taskNames = taskNames + (i + 1) + '. ' + bugName + '\n'
+                                        }
+                                    }
+                                    layer.open({
+                                        type: 1,
+                                        title: '禅道任务',
+                                        closeBtn: false,
+                                        area: ['420px', '380px'],
+                                        btn: ['确定', '关闭'],
+                                        content: "<div style='padding: 10px'><textarea rows=\"15\" readonly class=\"must\" cols=\"50\">" + taskNames + "</textarea></div>",
+                                        yes: function () {
+                                            $('#GZNR').val(taskNames)
+                                            layer.closeAll();
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    })
+                }
+                $.ajax({
+                    async: false,
+                    url: "inc/getActiveRecordObj.jsp?date=" + dateChange,
+                    type: "get",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.code == 0) {
+                            var recordList = data.data
+                            if (recordList.length == 0) {
+                                return false
+                            } else {
+                                if (recordList.length > 0) {
+                                    let record = "纷享销客跟进记录:\n";
+                                    for (let i = 0; i < recordList.length; i++) {
+                                        let recordValue = recordList[i]
+                                        record = record + recordValue + '\n';
+                                    }
+                                    layer.open({
+                                        type: 1,
+                                        title: '纷享销客跟进记录',
+                                        closeBtn: false,
+                                        area: ['420px', '380px'],
+                                        btn: ['确定', '关闭'],
+                                        content: "<div style='padding: 10px'><textarea rows=\"15\" readonly class=\"must\" cols=\"50\">" + record + "</textarea></div>",
+                                        yes: function () {
+                                            $('#GZNR').val(record);
+                                            layer.closeAll();
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    }
+                })
+            })
+        })
+
+        function getJob() {
+            var date = $('#gzrq').val();
+            if (date == '') {
+                alert('请选择工作日期')
+            }
+            $.ajax({
+                async: false,
+                url: "inc/getJob.jsp?date=" + date,
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == 0) {
+                        var taskData = data.data
+                        var taskList = taskData.taskList;
+                        var bugList = taskData.bugList
+                        var taskNames = ''
+                        if (taskList.length == 0 && bugList == 0) {
+                            //alert('未获取到任务')
+                            return false
+                        }
+                        if (taskList.length > 0) {
+                            taskNames = taskNames + '任务：\n'
+                            // 处理任务
+                            for (let i = 0; i < taskList.length; i++) {
+                                let taskValue = taskList[i]
+                                let taskName = taskValue.name
+                                taskNames = taskNames + (i + 1) + '. ' + taskName + '\n'
+                            }
+                        }
+
+                        // 处理bug
+                        if (bugList.length > 0) {
+                            taskNames = taskNames + '处理BUG：\n'
+                            for (let i = 0; i < bugList.length; i++) {
+                                let bugValue = bugList[i]
+                                let bugName = bugValue.title
+                                taskNames = taskNames + (i + 1) + '. ' + bugName + '\n'
+                            }
+                        }
+                        $('#GZNR').val(taskNames)
+                    } else {
+                        //alert("为获取到任务")
+                    }
+
+                }
+            });
+            $.ajax({
+                async: false,
+                url: "inc/getActiveRecordObj.jsp?date=" + date,
+                type: "get",
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == 0) {
+                        var recordList = data.data
+                        if (recordList.length == 0) {
+                            return false
+                        } else {
+                            if (recordList.length > 0) {
+                                let record = "纷享销客跟进记录:\n";
+                                for (let i = 0; i < recordList.length; i++) {
+                                    let recordValue = recordList[i]
+                                    record = record + recordValue + '\n';
+                                }
+                                layer.open({
+                                    type: 1,
+                                    title: '纷享销客跟进记录',
+                                    closeBtn: false,
+                                    area: ['420px', '380px'],
+                                    btn: ['确定', '关闭'],
+                                    content: "<div style='padding: 10px'><textarea rows=\"15\" readonly class=\"must\" cols=\"50\">" + record + "</textarea></div>",
+                                    yes: function () {
+                                        $('#GZNR').val(record);
+                                        layer.closeAll();
+                                    }
+                                })
+                            }
+
+                        }
+                    }
+                }
+            })
+        }
+
+        function init() {
+            var yftx = false
+            var bmswbmd = true
+            var xzswbmsw = true
+            if (yftx) {
+                //如果没有配置部门事务白名单，就隐藏
+                if (bmswbmd) {
+                    document.getElementById('rcswRadio').style.display = 'none';
+                    document.getElementById('rcswRadio_name').style.display = 'none';
+                }
+                //如果没有配置协助部门事务白名单，就隐藏
+                if (xzswbmsw) {
+                    document.getElementById('xzbmRadio').style.display = 'none';
+                    document.getElementById('xzbmRadio_name').style.display = 'none';
+                    document.getElementById('XZBMMC').style.display = 'none';
+                    document.getElementById('XZBM').style.display = 'none';
+                }
+            }
+            getJob();
+            var pd = parent._currTime;
+            if (pd != "" && pd != null) {
+                var m = (pd.getMonth() + 1);
+                if (m < 10) {
+                    var mm = "0" + m;
+                } else {
+                    var mm = m;
+                }
+            }
+            if (pd) {
+                $dp.$('gzrq').value = pd.getFullYear() + '-' + mm + '-' + pd.getDate();
+            }
+            $('#XZBMMC').attr('disabled', true);
+            $('#XZBM').attr('disabled', true);
+
+
+            $('#starttime').val(swsbsj);
+            $('#endtime').val(xwxbsj);
+
+            xxscCompute1(swxbsj, 'gzrq', xwsbsj, 'xxsc');
+
+            gzlCompute1('starttime', 'gzrq', 'endtime', 'Z', 'gzsc');
+
+
+            //radio按钮切换
+            $("input:radio[name='GZXZ_RADIO']").click(function () {
+                var type = $(this).attr('id');
+
+                if (type == 'cyxmRadio') {
+                    $('#XMID').attr('disabled', false);
+                    $('#XZBMMC').attr('disabled', true);
+                    $('#XZBM').attr('disabled', true);
+                } else if (type == 'xzbmRadio') {
+                    $('#XMID').attr('disabled', true);
+                    $('#XZBMMC').attr('disabled', false);
+                    $('#XZBM').attr('disabled', false);
+                } else if (type == 'rcswRadio') {
+                    $('#XMID').attr('disabled', true);
+                    $('#XZBMMC').attr('disabled', true);
+                    $('#XZBM').attr('disabled', true);
+                }
+            });
+
+
+            $("input:radio[name='timezoon']").click(function () {
+                var type = $(this).attr('id');
+                var starttime = $('#starttime');
+                var endtime = $('#endtime');
+
+
+                if (type == 'morning') {
+
+                    starttime.val(swsbsj);
+                    endtime.val(swxbsj);
+                    $('#xxsc').val('0');
+                    gzlCompute1('starttime', 'gzrq', 'endtime', 'Z', 'gzsc');
+                    starttime.data('max', '13:00:00');
+                    endtime.data('max', '13:00:00');
+                    starttime.data('min', null);
+                    endtime.data('min', null);
+                } else if (type == 'afternoon') {
+                    starttime.val(xwsbsj);
+                    endtime.val(xwxbsj);
+                    $('#xxsc').val('0');
+                    gzlCompute1('starttime', 'gzrq', 'endtime', 'Z', 'gzsc');
+                    starttime.data('min', '13:00:00');
+                    endtime.data('min', '13:00:00');
+
+                    starttime.data('max', null);
+                    endtime.data('max', null);
+
+                } else if (type == 'full') {
+                    starttime.val(swsbsj);
+                    endtime.val(xwxbsj);
+                    xxscCompute1(swxbsj, 'gzrq', xwsbsj, 'xxsc');
+                    gzlCompute1('starttime', 'gzrq', 'endtime', 'Z', 'gzsc');
+
+                    starttime.data('min', '13:00:00');
+                    endtime.data('min', '13:00:00');
+                    starttime.data('min', null);
+                    endtime.data('min', null);
+                    starttime.data('max', null);
+                    endtime.data('max', null);
+                }
+            });
+
+            //工时时间切换//夏季
+            // $("input:radio[name='timezoon']").click(function(){
+            //var type = $(this).attr('id');
+            //var starttime = $('#starttime');
+            //var endtime = $('#endtime');
+            //if(type == 'morning') {
+            //starttime.val('8:00');
+            //endtime.val('12:00');
+            //$('#gzsc').val('4.00');
+            //$('#xxsc').val('0');
+            //starttime.data('max','13:00:00');
+            //endtime.data('max','13:00:00');
+            //starttime.data('min',null);
+            //endtime.data('min',null);
+            //} else if(type == 'afternoon') {
+            //starttime.val('15:00');
+            //endtime.val('18:30');
+            //$('#gzsc').val('3.50');
+            //$('#xxsc').val('0');
+            //starttime.data('min','13:00:00');
+            //endtime.data('min','13:00:00');
+
+            //starttime.data('max',null);
+            //endtime.data('max',null);
+
+            //} else if(type == 'full') {
+            //starttime.val('8:00');
+            //endtime.val('18:30');
+            //$('#gzsc').val('7.50');
+            //$('#xxsc').val('3');
+            //starttime.data('min','13:00:00');
+            //endtime.data('min','13:00:00');
+            //starttime.data('min',null);
+            //endtime.data('min',null);
+            //starttime.data('max',null);
+            //endtime.data('max',null);
+            //}
+            //});
+
+            //工时时间切换//冬季
+
+            /*$("input:radio[name='timezoon']").click(function(){
+                var type = $(this).attr('id');
+                var starttime = $('#starttime');
+                var endtime = $('#endtime');
+                if(type == 'morning') {
+                    starttime.val('8:00');
+                    endtime.val('12:00');
+                    $('#gzsc').val('4.00');
+                    $('#xxsc').val('0');
+                    starttime.data('max','13:00:00');
+                    endtime.data('max','13:00:00');
+                    starttime.data('min',null);
+                    endtime.data('min',null);
+                } else if(type == 'afternoon') {
+                    starttime.val('14:00');
+                    endtime.val('17:30');
+                    $('#gzsc').val('3.50');
+                    $('#xxsc').val('0');
+                    starttime.data('min','13:00:00');
+                    endtime.data('min','13:00:00');
+
+                    starttime.data('max',null);
+                    endtime.data('max',null);
+
+                } else if(type == 'full') {
+                    starttime.val('8:00');
+                    endtime.val('17:30');
+                    $('#gzsc').val('7.50');
+                    $('#xxsc').val('2');
+                    starttime.data('min','13:00:00');
+                    endtime.data('min','13:00:00');
+                    starttime.data('min',null);
+                    endtime.data('min',null);
+                    starttime.data('max',null);
+                    endtime.data('max',null);
+                }
+            });*/
+
+            /*
+            var project_select = $('#XMID_SELECT');
+            //下拉列表选择
+            project_select.change(function() {
+                $('#XMID').val($(this).val());
+                $('#XMMC').val($(this).find('option:selected').text());
+                $(this).hide();
+            }); */
+
+            /* var picker = $('#picked');
+            //选择按钮点击
+            picker.click(function() {
+                $('#XMID_SELECT').show();
+            });
+            //初始化下拉列表
+
+            project_select.css({'position':'absolute'});
+            var t = picker.offset().top;
+            var l = picker.offset().left;
+            project_select.offset({top:t+10,left:l});
+            project_select.hide();
+            */
+
+            $('#xxsc').blur(function () {
+                gzlCompute1('starttime', 'gzrq', 'endtime', 'Z', 'gzsc');
+            });
+        }
+
+        function getDateDiff(startDate, endDate) {
+            var startTime = new Date(startDate).getTime();
+            var endTime = new Date(endDate).getTime();
+            var dates = (endTime - startTime) / (1000 * 60 * 60);
+
+            return dates.toFixed(2);
+        }
+
+        //t1时间id，gzrq，日期时间id，t2时间id,flag：时间顺序标记,gzsc工作时长id
+        function gzlCompute1(t1, gzrq, t2, flag, gzsc) {
+
+            var rq = $dp.$(gzrq).value;
+            if (!rq) {
+
+                $dp.$(gzrq).focus();
+                return;
+            }
+            var start;
+            var end;
+            if (flag == 'F') {
+                start = $dp.$(t2).value;
+                end = $dp.$(t1).value;
+            } else {
+                start = $dp.$(t1).value;
+                end = $dp.$(t2).value;
+            }
+            if (start && end) {
+                //保证秒数为0
+                var startRq = rq.replace(/-/g, "/") + " " + start + ":00";
+                var endRq = rq.replace(/-/g, "/") + " " + end + ":00";
+                var time = getDateDiff(startRq, endRq);
+                var xxsc = $('#xxsc').val();
+                var result;
+
+                //把时间计算成可以运算的值方便加减比较
+                var swsbsjTime = new Date(rq.replace(/-/g, "/") + " " + swsbsj + ":00").getTime();
+                var swxbsjTime = new Date(rq.replace(/-/g, "/") + " " + swxbsj + ":00").getTime();
+                var xwsbsjTime = new Date(rq.replace(/-/g, "/") + " " + xwsbsj + ":00").getTime();
+                var xwxbsjTime = new Date(rq.replace(/-/g, "/") + " " + xwxbsj + ":00").getTime();
+
+                //把开始和结束时间计算成可以运算的值方便加减比较
+                var startRq = new Date(startRq).getTime();
+                var endRq = new Date(endRq).getTime();
+
+
+                //如果是结束时间在上午下班之前的情况，工时应为结束时间减去开始时间
+                if (endRq <= swxbsjTime) {
+                    result = time;
+                    if (!isNaN(result)) {
+                        $('#' + gzsc).val(result);
+                        return;
+                    }
+                }
+                //如果是结束时间在上休息区的情况，工时应为上午下班时间减去开始时间
+                else if (swxbsjTime <= endRq && endRq <= xwsbsjTime) {
+                    result = getDateDiff(startRq, swxbsjTime);
+                    console.log(result)
+                    if (!isNaN(result)) {
+                        $('#' + gzsc).val(result);
+                        return;
+                    }
+                }
+                //如果是在中午休息时间开始上班，工时应为结束时间减去下午上班时间
+                else if (swxbsjTime <= startRq && startRq <= xwsbsjTime) {
+                    result = getDateDiff(xwsbsjTime, endRq);
+                    console.log(result)
+                    if (!isNaN(result)) {
+                        $('#' + gzsc).val(result);
+                        return;
+                    }
+                }
+                //如果是在下午上班时间之后打卡上班，工时应为结束时间减去开始时间
+                else if (startRq > xwsbsjTime) {
+                    result = getDateDiff(startRq, endRq);
+                    console.log(result)
+                    if (!isNaN(result)) {
+                        $('#' + gzsc).val(result);
+                        return;
+                    }
+                }
+                //其他情况则为工作时长减去休息时间
+                else {
+                    result = time - xxsc;
+                    if (!isNaN(result)) {
+                        $('#' + gzsc).val(result.toFixed(2));
+                        return;
+                    }
+                }
+                // $('#' + gzsc).val(time);
+            }
+        }
+
+
+        function datePickerOption(obj) {
+            var nowTime = document.getElementById("nowTime").value;
+            var gzrq = document.getElementById("gzrq").value;
+            var jbdm = document.getElementById("JBDM").value;
+            //alert(jbdm+"&&"+jbdm.substr(0,8)+"&&"+gzrq+"&&"+nowTime);
+            if (nowTime != gzrq && jbdm.substr(0, 8) != "00010104" && jbdm.substr(0, 8) != "00014705") {
+                //alert("补录报工只能录入标准工作时长（7.5）小时!");
+                return;
+            }
+            var id = $(obj).attr('id');
+            var options = {
+                dateFmt: 'HH:mm'
+            };
+            if ($(obj).data('min')) {
+                options.minDate = $(obj).data('min');
+            }
+            if ($(obj).data('max')) {
+                options.maxDate = $(obj).data('max');
+            }
+            if (id == 'starttime') {
+                options.onpicked = function () {
+                    gzlCompute1('endtime', 'gzrq', 'starttime', 'F', 'gzsc');
+                };
+                WdatePicker(options);
+            } else {
+                options.onpicked = function () {
+                    gzlCompute1('starttime', 'gzrq', 'endtime', 'Z', 'gzsc');
+                };
+                WdatePicker(options);
+            }
+        }
+
+        //获取休息时长	t1 开始时间  t2 结束时间
+        function xxscCompute1(start, gzrq, end, xxsc) {
+
+            var rq = $dp.$(gzrq).value;
+            if (!rq) {
+                $dp.$(gzrq).focus();
+                return;
+            }
+
+
+            if (start && end) {
+                //保证秒数为0
+
+                var startRq = rq.replace(/-/g, "/") + " " + start + ":00";
+                var endRq = rq.replace(/-/g, "/") + " " + end + ":00";
+
+                var time = getDateDiff(startRq, endRq);
+
+                $('#' + xxsc).val(time);
+            }
+        }
+    </script>
+</form>
+<iframe name="bdSave" width="0" height="0" style="display: none" border="1" frameborder="1" framespacing="1"
+        marginheight="1" marginwidth="1"></iframe>
 </body>
 </html>

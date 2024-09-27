@@ -1,0 +1,8 @@
+dependencies {
+    implementation(
+            "org.springframework.boot:spring-boot-starter-web",
+            "de.codecentric:spring-boot-admin-starter-client",
+            "org.springframework.boot:spring-boot-starter-undertow",
+    )
+}
+
